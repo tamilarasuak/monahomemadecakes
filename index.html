@@ -1,784 +1,656 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mona Homemadecakes — Luxury Cake Boutique Namakkal</title>
-<link rel="icon" href="cake.png">
-<meta name="description" content="Mona Homemadecakes — Crafting Sweet Masterpieces for Every Celebration. Premium wedding cakes, designer birthday cakes & luxury custom cakes in Namakkal."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-<style>
-:root{
-  --black:#080507;--black-2:#100c0e;--black-3:#181215;
-  --rose-gold:#c4786e;--rose-light:#dbb0a8;--rose-deep:#8b4f49;
-  --champagne:#d4af72;--champagne-lt:#e8d09e;
-  --cream:#f6ede4;--text-muted:#9a8880;--text-cream:#f0e8e0;
-  --glass-bg:rgba(255,255,255,0.035);--glass-border:rgba(212,175,114,0.14);
-  --glow-rose:rgba(196,120,110,0.45);--glow-gold:rgba(212,175,114,0.38);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;overflow-x:hidden;}
-body{background:var(--black);color:var(--text-cream);font-family:'Lato',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;cursor:none;}
-img{max-width:100%;display:block;}
-a{text-decoration:none;color:inherit;}
-::-webkit-scrollbar{width:3px;}
-::-webkit-scrollbar-track{background:var(--black);}
-::-webkit-scrollbar-thumb{background:linear-gradient(var(--rose-gold),var(--champagne));}
-
-/* CURSOR */
-#cursor{position:fixed;width:10px;height:10px;background:var(--champagne);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);mix-blend-mode:difference;}
-#cursor-ring{position:fixed;width:34px;height:34px;border:1px solid rgba(212,175,114,.45);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
-.mouse-glow{position:fixed;pointer-events:none;z-index:0;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(196,120,110,.05) 0%,transparent 70%);transform:translate(-50%,-50%);transition:left .7s ease,top .7s ease;}
-
-/* SCROLL BAR */
-#scroll-progress{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--rose-gold),var(--champagne));z-index:9999;}
-
-/* LOADER */
-#loader{position:fixed;inset:0;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:99997;}
-.loader-ring{width:56px;height:56px;border-radius:50%;border:1px solid rgba(212,175,114,.12);border-top-color:var(--champagne);animation:spin 1s linear infinite;margin-bottom:1.8rem;}
-#loader .loader-logo{font-family:'Cinzel',serif;font-size:clamp(1rem,3vw,1.6rem);letter-spacing:.4em;color:var(--champagne);opacity:0;animation:fadeUp .8s .4s forwards;}
-#loader .loader-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.7rem,2vw,.95rem);color:var(--rose-light);letter-spacing:.22em;margin-top:.4rem;opacity:0;animation:fadeUp .8s .7s forwards;}
-.loader-bar{width:150px;height:1px;background:rgba(212,175,114,.12);margin-top:1.4rem;position:relative;overflow:hidden;}
-.loader-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,var(--champagne),transparent);animation:barSlide 1.2s ease-in-out infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
-@keyframes barSlide{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 5%;display:flex;align-items:center;justify-content:space-between;transition:background .4s,padding .4s;}
-nav.scrolled{background:rgba(8,5,7,.9);backdrop-filter:blur(24px);border-bottom:1px solid var(--glass-border);padding:.8rem 5%;}
-.nav-logo{font-family:'Cinzel',serif;font-size:.95rem;letter-spacing:.35em;color:var(--champagne);display:flex;flex-direction:column;line-height:1.2;}
-.nav-logo span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.65rem;letter-spacing:.15em;color:var(--rose-light);font-weight:300;}
-.nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.18em;color:var(--text-muted);text-transform:uppercase;transition:color .3s;position:relative;}
-.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--champagne);transition:width .3s;}
-.nav-links a:hover{color:var(--champagne);}
-.nav-links a:hover::after{width:100%;}
-.nav-cta{background:transparent;border:1px solid var(--champagne);color:var(--champagne);padding:.4rem 1.3rem;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;cursor:none;transition:all .3s;}
-.nav-cta:hover{background:var(--champagne);color:var(--black);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:none;background:none;border:none;padding:4px;}
-.hamburger span{width:22px;height:1px;background:var(--champagne);display:block;transition:all .3s;}
-.mobile-menu{display:none;position:fixed;inset:0;background:rgba(8,5,7,.97);backdrop-filter:blur(20px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;}
-.mobile-menu.open{display:flex;}
-.mobile-menu a{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:.3em;color:var(--champagne);}
-.mobile-close{position:absolute;top:1.5rem;right:5%;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.2em;color:var(--rose-light);background:none;border:none;cursor:none;}
-
-/* HERO */
-#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(196,120,110,.13) 0%,transparent 65%),radial-gradient(ellipse 60% 80% at 100% 100%,rgba(212,175,114,.09) 0%,transparent 60%),var(--black);}
-.hero-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=1800&q=85') center/cover no-repeat;opacity:.22;transform:scale(1.06);animation:heroZoom 22s ease-in-out infinite alternate;}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,5,7,.4) 0%,rgba(8,5,7,.1) 35%,rgba(8,5,7,.65) 75%,var(--black) 100%);}
-@keyframes heroZoom{to{transform:scale(1.0);}}
-#particles-container{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;}
-.particle{position:absolute;pointer-events:none;animation:floatUp linear infinite;}
-@keyframes floatUp{0%{transform:translateY(0) rotate(0deg);opacity:0;}10%{opacity:1;}90%{opacity:.2;}100%{transform:translateY(-105vh) rotate(360deg);opacity:0;}}
-.hero-content{position:relative;z-index:2;text-align:center;padding:0 5%;max-width:900px;}
-.hero-eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.78rem,2vw,1rem);letter-spacing:.35em;color:var(--rose-light);margin-bottom:1.4rem;opacity:0;transform:translateY(18px);animation:heroReveal .9s .8s forwards;}
-.hero-title{font-family:'Cinzel',serif;font-weight:700;font-size:clamp(2.4rem,7.5vw,5.8rem);line-height:1.05;letter-spacing:.06em;color:var(--cream);text-shadow:0 0 80px rgba(212,175,114,.2);opacity:0;transform:translateY(30px);animation:heroReveal .9s 1.1s forwards;}
-.hero-title .accent{display:block;background:linear-gradient(135deg,var(--champagne) 0%,var(--rose-light) 50%,var(--champagne-lt) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-line{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--champagne),transparent);margin:1.5rem auto;opacity:0;animation:heroReveal .9s 1.4s forwards;}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.3rem);color:var(--text-muted);letter-spacing:.05em;max-width:580px;margin:0 auto 2.5rem;opacity:0;transform:translateY(18px);animation:heroReveal .9s 1.6s forwards;}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(18px);animation:heroReveal .9s 1.9s forwards;}
-@keyframes heroReveal{to{opacity:1;transform:translateY(0);}}
-.btn-primary{background:linear-gradient(135deg,var(--rose-gold),var(--champagne));color:var(--black);padding:.9rem 2.6rem;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.25em;border:none;cursor:none;transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
-.btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--champagne-lt),var(--rose-light));opacity:0;transition:opacity .3s;}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 45px var(--glow-gold);}
-.btn-primary:hover::after{opacity:1;}
-.btn-primary span{position:relative;z-index:1;}
-.btn-ghost{background:transparent;border:1px solid rgba(212,175,114,.5);color:var(--champagne);padding:.9rem 2.6rem;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.25em;cursor:none;transition:all .3s;}
-.btn-ghost:hover{border-color:var(--champagne);background:rgba(212,175,114,.08);}
-.scroll-ind{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:heroReveal .9s 2.3s forwards;}
-.scroll-ind span{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.3em;color:var(--text-muted);}
-.scroll-line{width:1px;height:38px;background:linear-gradient(var(--champagne),transparent);animation:scrollPulse 1.6s ease-in-out infinite;}
-@keyframes scrollPulse{0%,100%{opacity:.3;}50%{opacity:1;}}
-
-/* SHARED SECTION */
-section{position:relative;padding:6rem 5%;}
-.eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.78rem,1.8vw,.95rem);letter-spacing:.3em;color:var(--rose-light);text-align:center;margin-bottom:.7rem;display:block;}
-.sec-title{font-family:'Cinzel',serif;font-weight:600;font-size:clamp(1.6rem,4vw,2.9rem);letter-spacing:.08em;text-align:center;color:var(--cream);margin-bottom:.7rem;}
-.sec-line{width:55px;height:1px;background:linear-gradient(90deg,transparent,var(--champagne),transparent);margin:.7rem auto 3rem;}
-.reveal{opacity:0;transform:translateY(38px);transition:opacity .8s ease,transform .8s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.glass{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:blur(14px);}
-
-/* ── SIGNATURE CAKES — IMAGE CARDS ── */
-#cakes{background:linear-gradient(180deg,var(--black) 0%,var(--black-2) 50%,var(--black) 100%);}
-.cakes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.8rem;max-width:1200px;margin:0 auto;}
-.cake-card{position:relative;border-radius:4px;overflow:hidden;cursor:none;aspect-ratio:4/5;}
-.cake-card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease,filter .5s ease;}
-.cake-card:hover .cake-card-img{transform:scale(1.08);filter:brightness(.7);}
-.cake-card-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,5,7,.95) 0%,rgba(8,5,7,.5) 45%,rgba(8,5,7,.1) 100%);transition:background .5s;}
-.cake-card:hover .cake-card-overlay{background:linear-gradient(0deg,rgba(8,5,7,.98) 0%,rgba(8,5,7,.7) 55%,rgba(8,5,7,.2) 100%);}
-.cake-card-badge{position:absolute;top:1.2rem;right:1.2rem;font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.2em;padding:.28rem .7rem;border:1px solid var(--champagne);color:var(--champagne);background:rgba(8,5,7,.6);backdrop-filter:blur(6px);}
-.cake-card-body{position:absolute;bottom:0;left:0;right:0;padding:1.8rem;transform:translateY(4px);transition:transform .4s;}
-.cake-card:hover .cake-card-body{transform:translateY(0);}
-.cake-card-num{font-family:'Cormorant Garamond',serif;font-size:.8rem;color:var(--rose-light);letter-spacing:.2em;margin-bottom:.4rem;display:block;}
-.cake-card-body h3{font-family:'Cinzel',serif;font-size:1.05rem;letter-spacing:.15em;color:var(--cream);margin-bottom:.5rem;line-height:1.3;}
-.cake-card-body p{font-size:.82rem;color:rgba(154,136,128,.85);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .5s ease,opacity .4s;opacity:0;}
-.cake-card:hover .cake-card-body p{max-height:120px;opacity:1;}
-.cake-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:.9rem;}
-.cake-price{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--champagne);}
-.cake-arrow{width:32px;height:32px;border:1px solid rgba(212,175,114,.4);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--champagne);transition:background .3s,border-color .3s;}
-.cake-card:hover .cake-arrow{background:var(--champagne);color:var(--black);border-color:var(--champagne);}
-.cake-card-shine{position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,175,114,.06) 0%,transparent 60%);opacity:0;transition:opacity .4s;}
-.cake-card:hover .cake-card-shine{opacity:1;}
-
-/* GALLERY */
-#gallery{background:var(--black-2);}
-.gallery-wrap{max-width:1160px;margin:0 auto;position:relative;}
-.swiper{border-radius:3px;overflow:hidden;}
-.swiper-slide{position:relative;height:560px;overflow:hidden;}
-.swiper-slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 6s ease;}
-.swiper-slide-active img{transform:scale(1);}
-.slide-caption{position:absolute;bottom:0;left:0;right:0;padding:2rem 2.5rem;background:linear-gradient(transparent,rgba(8,5,7,.9));font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--cream);letter-spacing:.1em;}
-.slide-num{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.3em;color:var(--champagne);margin-bottom:.3rem;display:block;}
-.swiper-button-next,.swiper-button-prev{color:var(--champagne)!important;width:42px!important;height:42px!important;background:rgba(8,5,7,.72);backdrop-filter:blur(8px);border:1px solid var(--glass-border);border-radius:50%;transition:background .3s,border-color .3s;}
-.swiper-button-next:hover,.swiper-button-prev:hover{background:rgba(212,175,114,.12);border-color:var(--champagne);}
-.swiper-button-next::after,.swiper-button-prev::after{font-size:.75rem!important;}
-.swiper-pagination-bullet{background:var(--champagne)!important;opacity:.4!important;}
-.swiper-pagination-bullet-active{opacity:1!important;}
-
-/* WHY */
-#why{background:var(--black);}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;max-width:1200px;margin:0 auto;}
-.why-card{padding:2rem 1.8rem;text-align:center;border-radius:3px;position:relative;overflow:hidden;}
-.why-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--rose-gold),var(--champagne),transparent);transform:scaleX(0);transition:transform .5s;transform-origin:center;}
-.why-card:hover::before{transform:scaleX(1);}
-.why-icon-wrap{width:64px;height:64px;border-radius:50%;border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.6rem;background:linear-gradient(135deg,rgba(196,120,110,.1),rgba(212,175,114,.08));transition:border-color .4s,box-shadow .4s;}
-.why-card:hover .why-icon-wrap{border-color:rgba(212,175,114,.4);box-shadow:0 0 24px rgba(212,175,114,.18);}
-.why-card h3{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.2em;color:var(--cream);margin-bottom:.5rem;}
-.why-card p{font-size:.81rem;color:var(--text-muted);line-height:1.85;}
-
-/* ABOUT */
-#about{background:linear-gradient(135deg,var(--black-2) 0%,var(--black-3) 100%);}
-.about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center;}
-.about-img-wrap{position:relative;}
-.about-img{width:100%;height:520px;object-fit:cover;border-radius:3px;filter:brightness(.88) saturate(.9);}
-.about-frame{position:absolute;top:18px;left:18px;right:-18px;bottom:-18px;border:1px solid var(--glass-border);border-radius:3px;z-index:0;pointer-events:none;}
-.about-badge{position:absolute;bottom:-1.8rem;right:-1.8rem;width:116px;height:116px;background:linear-gradient(135deg,var(--rose-gold),var(--champagne));border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 50px rgba(212,175,114,.38);z-index:2;}
-.about-badge strong{font-family:'Cinzel',serif;font-size:1.5rem;color:var(--black);font-weight:700;line-height:1;}
-.about-badge span{font-family:'Cormorant Garamond',serif;font-size:.58rem;color:var(--black);letter-spacing:.12em;text-align:center;line-height:1.4;margin-top:.15rem;}
-/* ── MOBILE ABOUT IMAGE ── */
-.about-mobile-img{display:none;width:100%;height:280px;object-fit:cover;border-radius:3px;margin-bottom:2rem;filter:brightness(.88) saturate(.9);}
-.about-content .eyebrow,.about-content .sec-title{text-align:left;}
-.about-content .sec-line{margin-left:0;}
-.about-content p{font-size:.88rem;color:var(--text-muted);line-height:1.95;margin-bottom:1.1rem;}
-.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:2rem;}
-.stat-item{padding:1.2rem 1.4rem;border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:blur(8px);border-radius:2px;}
-.stat-num{font-family:'Cinzel',serif;font-size:1.9rem;font-weight:600;background:linear-gradient(135deg,var(--champagne),var(--rose-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
-.stat-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.78rem;color:var(--text-muted);letter-spacing:.08em;margin-top:.25rem;}
-
-/* TESTIMONIALS */
-#testimonials{background:var(--black-2);}
-.testi-swiper{max-width:860px;margin:0 auto;}
-.testi-slide{padding:2.5rem 2rem;text-align:center;border-radius:3px;}
-.testi-stars{color:var(--champagne);font-size:.95rem;letter-spacing:.2em;margin-bottom:1.2rem;}
-.testi-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.18rem);color:var(--cream);line-height:2;margin-bottom:1.5rem;}
-.testi-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--rose-gold),var(--champagne));display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.88rem;font-weight:600;color:var(--black);margin:0 auto .7rem;box-shadow:0 0 22px rgba(212,175,114,.3);}
-.testi-author{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.2em;color:var(--champagne);}
-.testi-role{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.78rem;color:var(--text-muted);}
-
-/* OCCASIONS */
-#occasions{background:var(--black);}
-.occasions-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.2rem;max-width:1100px;margin:0 auto;}
-.occ-card{padding:2rem 1.4rem;text-align:center;border-radius:3px;cursor:none;position:relative;overflow:hidden;}
-.occ-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(196,120,110,.07),rgba(212,175,114,.04));opacity:0;transition:opacity .4s;}
-.occ-card:hover::after{opacity:1;}
-.occ-icon{font-size:2rem;margin-bottom:.9rem;display:block;transition:transform .4s;}
-.occ-card:hover .occ-icon{transform:scale(1.18) translateY(-3px);}
-.occ-card h3{font-family:'Cinzel',serif;font-size:.76rem;letter-spacing:.2em;color:var(--cream);margin-bottom:.35rem;}
-.occ-card p{font-size:.76rem;color:var(--text-muted);line-height:1.7;}
-
-/* TIMINGS */
-#timings{background:linear-gradient(135deg,var(--black-2),var(--black-3));}
-.timings-inner{max-width:580px;margin:0 auto;text-align:center;}
-.status-badge{display:inline-flex;align-items:center;gap:.6rem;padding:.5rem 1.4rem;border:1px solid currentColor;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.25em;margin-bottom:2rem;}
-.status-dot{width:7px;height:7px;border-radius:50%;animation:sPulse 1.5s ease-in-out infinite;}
-@keyframes sPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.5);opacity:.6;}}
-.s-open .status-badge{color:var(--champagne);}
-.s-open .status-dot{background:var(--champagne);box-shadow:0 0 8px var(--champagne);}
-.s-closed .status-badge{color:var(--rose-light);}
-.s-closed .status-dot{background:var(--rose-light);box-shadow:0 0 8px var(--rose-light);}
-.timing-table{width:100%;border-collapse:collapse;font-family:'Cormorant Garamond',serif;font-size:1rem;}
-.timing-table td{padding:.8rem 1rem;border-bottom:1px solid var(--glass-border);color:var(--text-muted);}
-.timing-table td:first-child{color:var(--cream);letter-spacing:.08em;}
-.timing-table td:last-child{text-align:right;color:var(--champagne);}
-.timings-note{margin-top:1.4rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:var(--text-muted);}
-
-/* LOCATION */
-#location{background:var(--black-2);}
-.location-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.3fr;gap:2.5rem;align-items:start;}
-.location-card{padding:2.5rem;border-radius:3px;}
-.loc-item{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.4rem;}
-.loc-icon{font-size:1.15rem;flex-shrink:0;margin-top:.1rem;filter:drop-shadow(0 0 6px rgba(212,175,114,.4));}
-.loc-item h4{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.2em;color:var(--champagne);margin-bottom:.25rem;}
-.loc-item p,.loc-item a{font-size:.83rem;color:var(--text-muted);line-height:1.7;transition:color .3s;}
-.loc-item a:hover{color:var(--rose-light);}
-.map-wrap{border:1px solid var(--glass-border);overflow:hidden;position:relative;border-radius:3px;height:400px;}
-.map-wrap::after{content:'';position:absolute;inset:-1px;box-shadow:inset 0 0 40px rgba(8,5,7,.5);z-index:1;pointer-events:none;}
-.map-wrap iframe{width:100%;height:100%;border:none;filter:invert(.86) hue-rotate(160deg) saturate(.8) brightness(.82);}
-
-/* CONTACT */
-#contact{background:var(--black);}
-.contact-inner{max-width:1100px;margin:0 auto;}
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem;}
-.contact-card{padding:2rem 1.8rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.65rem;border-radius:3px;}
-.contact-icon{font-size:1.9rem;filter:drop-shadow(0 0 10px rgba(212,175,114,.4));}
-.contact-card h3{font-family:'Cinzel',serif;font-size:.74rem;letter-spacing:.2em;color:var(--champagne);}
-.contact-card p,.contact-card a{font-size:.83rem;color:var(--text-muted);line-height:1.7;transition:color .3s;}
-.contact-card a:hover{color:var(--rose-light);}
-.contact-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:3rem;}
-.btn-call{background:transparent;border:1px solid var(--champagne);color:var(--champagne);padding:.82rem 2rem;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;cursor:none;transition:all .3s;display:flex;align-items:center;gap:.5rem;}
-.btn-call:hover{background:rgba(212,175,114,.1);}
-.btn-wa{background:transparent;border:1px solid #25d366;color:#25d366;padding:.82rem 2rem;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;cursor:none;transition:all .3s;display:flex;align-items:center;gap:.5rem;}
-.btn-wa:hover{background:rgba(37,211,102,.08);}
-
-/* FOOTER */
-footer{background:var(--black-3);border-top:1px solid var(--glass-border);padding:3rem 5% 2rem;text-align:center;}
-.footer-logo{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:.4em;color:var(--champagne);margin-bottom:.35rem;}
-.footer-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:var(--text-muted);letter-spacing:.15em;margin-bottom:2rem;}
-.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;list-style:none;margin-bottom:2rem;}
-.footer-links a{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.2em;color:var(--text-muted);text-transform:uppercase;transition:color .3s;}
-.footer-links a:hover{color:var(--champagne);}
-.footer-rule{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--glass-border),transparent);margin:1.5rem 0;}
-.footer-copy{font-size:.72rem;color:rgba(154,136,128,.45);letter-spacing:.08em;}
-
-/* FLOATING */
-.floating-btns{position:fixed;right:1.5rem;bottom:2rem;display:flex;flex-direction:column;gap:.8rem;z-index:900;}
-.fab{width:52px;height:52px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;font-size:1.3rem;cursor:none;position:relative;transition:transform .3s,box-shadow .3s;}
-.fab::before{content:'';position:absolute;inset:-5px;border-radius:50%;animation:fabPulse 2s ease-in-out infinite;opacity:.5;}
-.fab:hover{transform:scale(1.1);}
-.fab-wa{background:linear-gradient(135deg,#25d366,#128c7e);}
-.fab-wa::before{border:1px solid #25d366;animation-delay:.5s;}
-.fab-wa:hover{box-shadow:0 8px 32px rgba(37,211,102,.4);}
-.fab-call{background:linear-gradient(135deg,var(--rose-gold),var(--champagne));}
-.fab-call::before{border:1px solid var(--champagne);}
-.fab-call:hover{box-shadow:0 8px 32px var(--glow-gold);}
-@keyframes fabPulse{0%{transform:scale(1);opacity:.35;}70%{transform:scale(1.65);opacity:0;}100%{transform:scale(1.65);opacity:0;}}
-
-/* SPARKLE */
-.sparkle{position:fixed;pointer-events:none;z-index:99990;border-radius:50%;animation:sparkAnim .6s ease-out forwards;}
-@keyframes sparkAnim{0%{opacity:1;transform:scale(1);}100%{opacity:0;transform:scale(0) translateY(-22px);}}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .about-inner{grid-template-columns:1fr;}
-  .about-img-wrap{display:none;}
-  .about-mobile-img{display:block;}
-  .location-inner{grid-template-columns:1fr;}
-  .map-wrap{height:300px;}
-  .nav-links,.nav-cta{display:none;}
-  .hamburger{display:flex;}
-  .about-content .eyebrow,.about-content .sec-title{text-align:center;}
-  .about-content .sec-line{margin:0 auto 3rem;}
-  .stats-grid{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:600px){
-  section{padding:4rem 5%;}
-  .hero-btns{flex-direction:column;align-items:center;}
-  .swiper-slide{height:340px;}
-  .cakes-grid{grid-template-columns:1fr;gap:1.2rem;}
-  .cake-card{aspect-ratio:3/4;}
-  .cake-card-body p{max-height:100px;opacity:1;}
-  .floating-btns{right:1rem;bottom:1.5rem;}
-  .fab{width:46px;height:46px;font-size:1.1rem;}
-  .stats-grid{grid-template-columns:1fr 1fr;}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mona Homemadecakes — Luxury Cake Boutique Namakkal</title>
+  <link rel="icon" href="cake.png">
+  <meta name="description"
+    content="Mona Homemadecakes — Crafting Sweet Masterpieces for Every Celebration. Premium wedding cakes, designer birthday cakes & luxury custom cakes in Namakkal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-<div class="mouse-glow" id="mouseGlow"></div>
-<div id="scroll-progress"></div>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+  <div class="mouse-glow" id="mouseGlow"></div>
+  <div id="scroll-progress"></div>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-ring"></div>
-  <div class="loader-logo">MONA HOMEMADECAKES</div>
-  <div class="loader-sub">Crafting Sweet Masterpieces</div>
-  <div class="loader-bar"></div>
-</div>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" id="mobileClose">✕ CLOSE</button>
-  <a href="#cakes" onclick="closeMM()">Cakes</a>
-  <a href="#gallery" onclick="closeMM()">Gallery</a>
-  <a href="#about" onclick="closeMM()">Our Story</a>
-  <a href="#testimonials" onclick="closeMM()">Reviews</a>
-  <a href="#location" onclick="closeMM()">Find Us</a>
-  <a href="#contact" onclick="closeMM()">Contact</a>
-</div>
-
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-logo">MONA HOMEMADECAKES<span>Luxury Patisserie · Namakkal</span></div>
-  <ul class="nav-links">
-    <li><a href="#cakes">Cakes</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#about">Our Story</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="#location">Find Us</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Order Now</a>
-  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-img"></div>
-  <div class="hero-overlay"></div>
-  <div id="particles-container"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">✦ Est. 2012 · Namakkal's Premier Cake Atelier ✦</p>
-    <h1 class="hero-title">Mona<span class="accent">Homemadecakes</span></h1>
-    <div class="hero-line"></div>
-    <p class="hero-sub">Crafting Sweet Masterpieces for Every Celebration</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-primary"><span>✦ Order Now</span></a>
-      <a href="#gallery" class="btn-ghost">View Cakes</a>
-    </div>
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-ring"></div>
+    <div class="loader-logo">MONA HOMEMADECAKES</div>
+    <div class="loader-sub">Crafting Sweet Masterpieces</div>
+    <div class="loader-bar"></div>
   </div>
-  <div class="scroll-ind"><span>SCROLL</span><div class="scroll-line"></div></div>
-</section>
 
-<!-- SIGNATURE CAKES — IMAGE CARDS -->
-<section id="cakes">
-  <span class="eyebrow reveal">Our Specialities</span>
-  <h2 class="sec-title reveal">Signature Collections</h2>
-  <div class="sec-line reveal"></div>
-  <div class="cakes-grid">
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">✕ CLOSE</button>
+    <a href="#cakes" onclick="closeMM()">Cakes</a>
+    <a href="#gallery" onclick="closeMM()">Gallery</a>
+    <a href="#about" onclick="closeMM()">Our Story</a>
+    <a href="#testimonials" onclick="closeMM()">Reviews</a>
+    <a href="#location" onclick="closeMM()">Find Us</a>
+    <a href="#contact" onclick="closeMM()">Contact</a>
+  </div>
 
-    <div class="cake-card reveal">
-      <img class="cake-card-img" src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800&q=85" alt="Wedding Cake"/>
-      <div class="cake-card-overlay"></div>
-      <div class="cake-card-shine"></div>
-      <span class="cake-card-badge">BESTSELLER</span>
-      <div class="cake-card-body">
-        <span class="cake-card-num">01</span>
-        <h3>Wedding Cakes</h3>
-        <p>Multi-tier opulent creations with edible florals, sugar lace & hand-painted gold accents — the centrepiece of your love story.</p>
-        <div class="cake-card-footer">
-          <span class="cake-price">From ₹ 8,500</span>
-          <span class="cake-arrow">→</span>
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">MONA HOMEMADECAKES<span>Luxury Patisserie · Namakkal</span></div>
+    <ul class="nav-links">
+      <li><a href="#cakes">Cakes</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#location">Find Us</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Order Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-img"></div>
+    <div class="hero-overlay"></div>
+    <div id="particles-container"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">✦ Est. 2012 · Namakkal's Premier Cake Atelier ✦</p>
+      <h1 class="hero-title">Mona<span class="accent">Homemadecakes</span></h1>
+      <div class="hero-line"></div>
+      <p class="hero-sub">Crafting Sweet Masterpieces for Every Celebration</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary"><span>✦ Order Now</span></a>
+        <a href="#gallery" class="btn-ghost">View Cakes</a>
+      </div>
+    </div>
+    <div class="scroll-ind"><span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE CAKES — IMAGE CARDS -->
+  <section id="cakes">
+    <span class="eyebrow reveal">Our Specialities</span>
+    <h2 class="sec-title reveal">Signature Collections</h2>
+    <div class="sec-line reveal"></div>
+    <div class="cakes-grid">
+
+      <div class="cake-card reveal">
+        <img class="cake-card-img" src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800&q=85"
+          alt="Wedding Cake" />
+        <div class="cake-card-overlay"></div>
+        <div class="cake-card-shine"></div>
+        <span class="cake-card-badge">BESTSELLER</span>
+        <div class="cake-card-body">
+          <span class="cake-card-num">01</span>
+          <h3>Wedding Cakes</h3>
+          <p>Multi-tier opulent creations with edible florals, sugar lace & hand-painted gold accents — the centrepiece
+            of your love story.</p>
+          <div class="cake-card-footer">
+            <span class="cake-price">From ₹ 8,500</span>
+            <span class="cake-arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <img class="cake-card-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=85"
+          alt="Birthday Cake" />
+        <div class="cake-card-overlay"></div>
+        <div class="cake-card-shine"></div>
+        <div class="cake-card-body">
+          <span class="cake-card-num">02</span>
+          <h3>Birthday Cakes</h3>
+          <p>Vibrant, joyful, and utterly delicious. From children's fantasies to elegant adult celebrations — every
+            slice is pure magic.</p>
+          <div class="cake-card-footer">
+            <span class="cake-price">From ₹ 1,200</span>
+            <span class="cake-arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <img class="cake-card-img" src="https://images.unsplash.com/photo-1611293388250-580b08c4a145?w=800&q=85"
+          alt="Anniversary Cake" />
+        <div class="cake-card-overlay"></div>
+        <div class="cake-card-shine"></div>
+        <span class="cake-card-badge">POPULAR</span>
+        <div class="cake-card-body">
+          <span class="cake-card-num">03</span>
+          <h3>Anniversary Cakes</h3>
+          <p>Romantic florals, gold leaf accents, and flavours as beautiful as your memories. Mark your milestones in
+            elegance.</p>
+          <div class="cake-card-footer">
+            <span class="cake-price">From ₹ 2,200</span>
+            <span class="cake-arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <img class="cake-card-img" src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800&q=85"
+          alt="Designer Cake" />
+        <div class="cake-card-overlay"></div>
+        <div class="cake-card-shine"></div>
+        <div class="cake-card-body">
+          <span class="cake-card-num">04</span>
+          <h3>Designer Cakes</h3>
+          <p>Where cake meets couture. Each piece is sculpted with extraordinary precision — wearable-art inspired and
+            entirely bespoke.</p>
+          <div class="cake-card-footer">
+            <span class="cake-price">From ₹ 3,500</span>
+            <span class="cake-arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <img class="cake-card-img" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=85"
+          alt="Theme Cake" />
+        <div class="cake-card-overlay"></div>
+        <div class="cake-card-shine"></div>
+        <div class="cake-card-body">
+          <span class="cake-card-num">05</span>
+          <h3>Theme Cakes</h3>
+          <p>Immersive storytelling in sugar and sponge. Any theme, any world — we bring imagination to life with
+            stunning edible artistry.</p>
+          <div class="cake-card-footer">
+            <span class="cake-price">From ₹ 2,800</span>
+            <span class="cake-arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cake-card reveal">
+        <img class="cake-card-img" src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=85"
+          alt="Custom Luxury Cake" />
+        <div class="cake-card-overlay"></div>
+        <div class="cake-card-shine"></div>
+        <span class="cake-card-badge">BESPOKE</span>
+        <div class="cake-card-body">
+          <span class="cake-card-num">06</span>
+          <h3>Custom Luxury Cakes</h3>
+          <p>One-of-a-kind masterpieces. A private consultation translates your vision into something the world has
+            never tasted or seen.</p>
+          <div class="cake-card-footer">
+            <span class="cake-price">From ₹ 12,000</span>
+            <span class="cake-arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <span class="eyebrow reveal">Cake Portfolio</span>
+    <h2 class="sec-title reveal">Featured Collection</h2>
+    <div class="sec-line reveal"></div>
+    <div class="gallery-wrap reveal">
+      <div class="swiper gallerySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=1400&q=85"
+              alt="Luxury Wedding Cake" loading="lazy" />
+            <div class="slide-caption"><span class="slide-num">01 / WEDDING</span>Ivory & Rose Gold Bridal Masterpiece
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=1400&q=85" alt="Floral Cake"
+              loading="lazy" />
+            <div class="slide-caption"><span class="slide-num">02 / FLORAL</span>Botanical Garden Floral Art Cake</div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1400&q=85" alt="Chocolate Cake"
+              loading="lazy" />
+            <div class="slide-caption"><span class="slide-num">03 / CHOCOLATE</span>Dark Chocolate Indulgence Tower
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1611293388250-580b08c4a145?w=1400&q=85" alt="Peony Cake"
+              loading="lazy" />
+            <div class="slide-caption"><span class="slide-num">04 / ROMANCE</span>Peony Blossom Anniversary Tier</div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=1400&q=85" alt="Drip Cake"
+              loading="lazy" />
+            <div class="slide-caption"><span class="slide-num">05 / DESIGNER</span>Champagne Gold Drip Cake</div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=1400&q=85" alt="Wedding Tiers"
+              loading="lazy" />
+            <div class="slide-caption"><span class="slide-num">06 / WEDDING</span>Four-Tier White Elegance</div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=1400&q=85"
+              alt="Birthday Celebration" loading="lazy" />
+            <div class="slide-caption"><span class="slide-num">07 / BIRTHDAY</span>Celebration Canopy Birthday Cake
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=1400&q=85" alt="Naked Cake"
+              loading="lazy" />
+            <div class="slide-caption"><span class="slide-num">08 / RUSTIC</span>Organic Naked Layer Cake</div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1551404973-761c83cd8339?w=1400&q=85" alt="Cream Cake"
+              loading="lazy" />
+            <div class="slide-caption"><span class="slide-num">09 / CLASSIC</span>Vanilla & Cream Celebration</div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1572003972803-571bb0a1ef89?w=1400&q=85" alt="Macaron Tower"
+              loading="lazy" />
+            <div class="slide-caption"><span class="slide-num">10 / PATISSERIE</span>Parisian Macaron Tower</div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1519869325930-281384150729?w=1400&q=85" alt="Dessert Table"
+              loading="lazy" />
+            <div class="slide-caption"><span class="slide-num">11 / TABLE</span>Luxury Dessert Table Arrangement</div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=1400&q=85" alt="Premium Cake"
+              loading="lazy" />
+            <div class="slide-caption"><span class="slide-num">12 / PREMIUM</span>Haute Pâtisserie Artistry</div>
+          </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <span class="eyebrow reveal">Our Promise</span>
+    <h2 class="sec-title reveal">Why Choose Us</h2>
+    <div class="sec-line reveal"></div>
+    <div class="why-grid">
+      <div class="glass why-card reveal">
+        <div class="why-icon-wrap">🌹</div>
+        <h3>Premium Ingredients</h3>
+        <p>Belgian couverture chocolate, French buttercream & organic eggs — quality begins at the very source.</p>
+      </div>
+      <div class="glass why-card reveal">
+        <div class="why-icon-wrap">🎨</div>
+        <h3>Custom Designs</h3>
+        <p>Every cake is designed in close collaboration with you. Our artists translate your vision into edible art.
+        </p>
+      </div>
+      <div class="glass why-card reveal">
+        <div class="why-icon-wrap">🌅</div>
+        <h3>Freshly Baked Daily</h3>
+        <p>Zero pre-baked or frozen cakes. Every creation leaves our oven the morning it reaches your celebration.</p>
+      </div>
+      <div class="glass why-card reveal">
+        <div class="why-icon-wrap">🚀</div>
+        <h3>Same-Day Delivery</h3>
+        <p>Lightning-fast delivery across Namakkal without compromising the beauty or integrity of your cake.</p>
+      </div>
+      <div class="glass why-card reveal">
+        <div class="why-icon-wrap">👩‍🍳</div>
+        <h3>Expert Cake Artists</h3>
+        <p>Our team trained in renowned patisseries across India and Europe, bringing world-class artistry home.</p>
+      </div>
+      <div class="glass why-card reveal">
+        <div class="why-icon-wrap">⭐</div>
+        <h3>100% Satisfaction</h3>
+        <p>Your celebration deserves nothing less than perfection. We stand behind every cake, guaranteed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-img-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=85" alt="Mona Homemadecakes Baker"
+          class="about-img" loading="lazy" />
+        <div class="about-frame"></div>
+        <div class="about-badge"><strong>12+</strong><span>YEARS OF ARTISTRY</span></div>
+      </div>
+      <div class="about-content reveal">
+        <!-- mobile-only image -->
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Mona Homemadecakes"
+          class="about-mobile-img" loading="lazy" />
+        <span class="eyebrow">Our Story</span>
+        <h2 class="sec-title">Born from Passion,<br />Perfected by Craft</h2>
+        <div class="sec-line"></div>
+        <p>Mona Homemadecakes was founded in 2012 with a single unwavering belief: a cake is not merely a dessert — it
+          is the centrepiece of a memory. What began as a humble home-kitchen dream has grown into Namakkal's most
+          celebrated luxury cake atelier.</p>
+        <p>Our master pâtissière, Mona, trained under world-class confectioners in Mumbai and Paris before returning
+          home — creating a space where traditional Tamil warmth meets global artistry, where every sugared petal and
+          hand-painted detail tells a story.</p>
+        <p>Today, we craft over 400 bespoke cakes each month, serving clients who demand — and deserve — nothing but
+          extraordinary.</p>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-num" data-target="10000">0</div>
+            <div class="stat-label">Happy Customers</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-target="5000">0</div>
+            <div class="stat-label">Custom Cakes Delivered</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-target="12">0</div>
+            <div class="stat-label">Years of Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-target="98">0</div>
+            <div class="stat-label">% Customer Satisfaction</div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="cake-card reveal">
-      <img class="cake-card-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=85" alt="Birthday Cake"/>
-      <div class="cake-card-overlay"></div>
-      <div class="cake-card-shine"></div>
-      <div class="cake-card-body">
-        <span class="cake-card-num">02</span>
-        <h3>Birthday Cakes</h3>
-        <p>Vibrant, joyful, and utterly delicious. From children's fantasies to elegant adult celebrations — every slice is pure magic.</p>
-        <div class="cake-card-footer">
-          <span class="cake-price">From ₹ 1,200</span>
-          <span class="cake-arrow">→</span>
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <span class="eyebrow reveal">Client Love</span>
+    <h2 class="sec-title reveal">What Our Guests Say</h2>
+    <div class="sec-line reveal"></div>
+    <div class="testi-swiper reveal">
+      <div class="swiper testiSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="glass testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"Mona Homemadecakes created our four-tier wedding cake and it was beyond anything
+                we'd imagined. Guests were photographing it before tasting — an absolutely breathtaking piece of art."
+              </p>
+              <div class="testi-avatar">PR</div>
+              <div class="testi-author">Priya Rajan</div>
+              <div class="testi-role">Bride · Wedding Cake</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="glass testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"I ordered a custom Ferrari-themed cake for my son's 7th birthday and the detail
+                left everyone speechless. It tasted even better than it looked — which is saying something
+                extraordinary."</p>
+              <div class="testi-avatar">AK</div>
+              <div class="testi-author">Arjun Kumar</div>
+              <div class="testi-role">Customer · Theme Birthday Cake</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="glass testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"Their Belgian chocolate ganache cake for our 25th anniversary was phenomenal. The
+                presentation, the flavour, and the warmth of the team — Mona Homemadecakes earned a customer for life."
+              </p>
+              <div class="testi-avatar">SM</div>
+              <div class="testi-author">Sunita Menon</div>
+              <div class="testi-role">Customer · Anniversary Cake</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="glass testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"We've tried bakeries across Namakkal but nothing compares. The attention to detail,
+                freshness, and passion they pour into every creation is unmatched. Highly recommended for any
+                celebration."</p>
+              <div class="testi-avatar">VN</div>
+              <div class="testi-author">Vijay Nair</div>
+              <div class="testi-role">Customer · Corporate Event</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="glass testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"Same-day delivery and the cake arrived looking as if it had just come off display
+                in a Paris boutique. Stunning craftsmanship and the red velvet was absolutely divine."</p>
+              <div class="testi-avatar">DP</div>
+              <div class="testi-author">Deepa Patel</div>
+              <div class="testi-role">Customer · Same-Day Delivery</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="glass testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"I've ordered four times now and each time they raise the bar. Their baby shower
+                cake with handcrafted fondant booties had my sister in happy tears. Pure, edible magic."</p>
+              <div class="testi-avatar">MR</div>
+              <div class="testi-author">Meera Ramesh</div>
+              <div class="testi-role">Customer · Baby Shower Cake</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="glass testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"From consultation to delivery, every step was flawless. Mona personally ensured
+                every detail matched our brief. This is what true luxury service feels like."</p>
+              <div class="testi-avatar">KV</div>
+              <div class="testi-author">Kiran Venkat</div>
+              <div class="testi-role">Customer · Bespoke Cake</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="glass testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"We ordered our engagement dessert table from Mona Homemadecakes and it was the talk
+                of the evening. Three months later, guests still bring it up. Truly remarkable."</p>
+              <div class="testi-avatar">RS</div>
+              <div class="testi-author">Rahul & Shruti</div>
+              <div class="testi-role">Clients · Engagement Ceremony</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="glass testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"The fondant Taj Mahal they built for our cultural event was an engineering and
+                artistic marvel. Every one of 300 guests stopped to photograph it. Genuinely gifted team."</p>
+              <div class="testi-avatar">TI</div>
+              <div class="testi-author">Tamil Institute</div>
+              <div class="testi-role">Organisation · Cultural Event</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="glass testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <p class="testi-text">"Ordered a surprise cake with just 12 hours notice and they delivered a flawless,
+                gorgeous creation exactly on time. Namakkal's best cake studio without a single doubt."</p>
+              <div class="testi-avatar">LA</div>
+              <div class="testi-author">Lavanya Anand</div>
+              <div class="testi-role">Customer · Last-Minute Order</div>
+            </div>
+          </div>
         </div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
+  </section>
 
-    <div class="cake-card reveal">
-      <img class="cake-card-img" src="https://images.unsplash.com/photo-1611293388250-580b08c4a145?w=800&q=85" alt="Anniversary Cake"/>
-      <div class="cake-card-overlay"></div>
-      <div class="cake-card-shine"></div>
-      <span class="cake-card-badge">POPULAR</span>
-      <div class="cake-card-body">
-        <span class="cake-card-num">03</span>
-        <h3>Anniversary Cakes</h3>
-        <p>Romantic florals, gold leaf accents, and flavours as beautiful as your memories. Mark your milestones in elegance.</p>
-        <div class="cake-card-footer">
-          <span class="cake-price">From ₹ 2,200</span>
-          <span class="cake-arrow">→</span>
-        </div>
+  <!-- OCCASIONS -->
+  <section id="occasions">
+    <span class="eyebrow reveal">Every Milestone</span>
+    <h2 class="sec-title reveal">We Celebrate With You</h2>
+    <div class="sec-line reveal"></div>
+    <div class="occasions-grid">
+      <div class="glass occ-card reveal"><span class="occ-icon">💒</span>
+        <h3>Weddings</h3>
+        <p>Where forever begins — with the most beautiful cake in the room.</p>
+      </div>
+      <div class="glass occ-card reveal"><span class="occ-icon">🎂</span>
+        <h3>Birthdays</h3>
+        <p>Every year deserves a cake as wonderful as the person celebrating.</p>
+      </div>
+      <div class="glass occ-card reveal"><span class="occ-icon">👶</span>
+        <h3>Baby Showers</h3>
+        <p>Welcome the newest addition with sweetness and edible artistry.</p>
+      </div>
+      <div class="glass occ-card reveal"><span class="occ-icon">💫</span>
+        <h3>Anniversaries</h3>
+        <p>Milestones that deserve to be marked with extraordinary elegance.</p>
+      </div>
+      <div class="glass occ-card reveal"><span class="occ-icon">🏢</span>
+        <h3>Corporate Events</h3>
+        <p>Impress clients with branded luxury dessert experiences.</p>
+      </div>
+      <div class="glass occ-card reveal"><span class="occ-icon">💍</span>
+        <h3>Engagements</h3>
+        <p>Begin your love story with a cake as unique as your bond.</p>
       </div>
     </div>
+  </section>
 
-    <div class="cake-card reveal">
-      <img class="cake-card-img" src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800&q=85" alt="Designer Cake"/>
-      <div class="cake-card-overlay"></div>
-      <div class="cake-card-shine"></div>
-      <div class="cake-card-body">
-        <span class="cake-card-num">04</span>
-        <h3>Designer Cakes</h3>
-        <p>Where cake meets couture. Each piece is sculpted with extraordinary precision — wearable-art inspired and entirely bespoke.</p>
-        <div class="cake-card-footer">
-          <span class="cake-price">From ₹ 3,500</span>
-          <span class="cake-arrow">→</span>
+  <!-- TIMINGS -->
+  <section id="timings">
+    <span class="eyebrow reveal">Opening Hours</span>
+    <h2 class="sec-title reveal">When to Visit Us</h2>
+    <div class="sec-line reveal"></div>
+    <div class="timings-inner reveal" id="timingsInner">
+      <div id="statusBadge" class="status-badge"><span class="status-dot" id="statusDot"></span><span
+          id="statusText">Checking…</span></div>
+      <table class="timing-table">
+        <tr>
+          <td>Monday</td>
+          <td>8:00 AM – 9:30 PM</td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td>8:00 AM – 9:30 PM</td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td>8:00 AM – 9:30 PM</td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td>8:00 AM – 9:30 PM</td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td>8:00 AM – 9:30 PM</td>
+        </tr>
+        <tr>
+          <td>Saturday</td>
+          <td>8:00 AM – 9:30 PM</td>
+        </tr>
+        <tr>
+          <td>Sunday</td>
+          <td>8:00 AM – 9:30 PM</td>
+        </tr>
+      </table>
+      <p class="timings-note">✦ Orders accepted 7 days a week · Walk-ins always welcome</p>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location">
+    <span class="eyebrow reveal">Visit Us</span>
+    <h2 class="sec-title reveal">Find Our Studio</h2>
+    <div class="sec-line reveal"></div>
+    <div class="location-inner">
+      <div class="glass location-card reveal">
+        <div class="loc-item"><span class="loc-icon">📍</span>
+          <div>
+            <h4>Studio Address</h4>
+            <p>Santhapettai,<br />Namakkal District,<br />Tamil Nadu 637001</p>
+          </div>
         </div>
+        <div class="loc-item"><span class="loc-icon">📞</span>
+          <div>
+            <h4>Phone</h4><a href="tel:+919876543210">+91 98765 43210</a>
+          </div>
+        </div>
+        <div class="loc-item"><span class="loc-icon">✉️</span>
+          <div>
+            <h4>Email</h4><a href="mailto:hello@monahomemadecakes.com">hello@monahomemadecakes.com</a>
+          </div>
+        </div>
+        <div class="loc-item"><span class="loc-icon">🕐</span>
+          <div>
+            <h4>Hours</h4>
+            <p>Monday – Sunday · 8:00 AM – 9:30 PM</p>
+          </div>
+        </div>
+        <a href="https://wa.me/919876543210?text=Hello%20Mona%20Homemadecakes!" target="_blank" class="btn-wa"
+          style="margin-top:.5rem;justify-content:center;">💬 &nbsp;WhatsApp Us</a>
+      </div>
+      <div class="map-wrap reveal">
+        <iframe
+          src="https://maps.google.com/maps?q=Santhapettai,%20Namakkal,%20Tamil%20Nadu&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Mona Homemadecakes Location"></iframe>
       </div>
     </div>
+  </section>
 
-    <div class="cake-card reveal">
-      <img class="cake-card-img" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=85" alt="Theme Cake"/>
-      <div class="cake-card-overlay"></div>
-      <div class="cake-card-shine"></div>
-      <div class="cake-card-body">
-        <span class="cake-card-num">05</span>
-        <h3>Theme Cakes</h3>
-        <p>Immersive storytelling in sugar and sponge. Any theme, any world — we bring imagination to life with stunning edible artistry.</p>
-        <div class="cake-card-footer">
-          <span class="cake-price">From ₹ 2,800</span>
-          <span class="cake-arrow">→</span>
+  <!-- CONTACT -->
+  <section id="contact">
+    <span class="eyebrow reveal">Get In Touch</span>
+    <h2 class="sec-title reveal">Order Your Masterpiece</h2>
+    <div class="sec-line reveal"></div>
+    <div class="contact-inner">
+      <div class="contact-grid">
+        <div class="glass contact-card reveal"><span class="contact-icon">📞</span>
+          <h3>Call Us</h3>
+          <p>Speak directly with our cake consultants for personalised advice.</p><a href="tel:+919876543210">+91 98765
+            43210</a>
+        </div>
+        <div class="glass contact-card reveal"><span class="contact-icon">💬</span>
+          <h3>WhatsApp</h3>
+          <p>Send photos and inspiration. We respond within minutes.</p><a href="https://wa.me/919876543210"
+            target="_blank">Chat on WhatsApp</a>
+        </div>
+        <div class="glass contact-card reveal"><span class="contact-icon">✉️</span>
+          <h3>Email</h3>
+          <p>For detailed briefs, large orders and corporate enquiries.</p><a
+            href="mailto:hello@monahomemadecakes.com">hello@monahomemadecakes.com</a>
         </div>
       </div>
-    </div>
-
-    <div class="cake-card reveal">
-      <img class="cake-card-img" src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=85" alt="Custom Luxury Cake"/>
-      <div class="cake-card-overlay"></div>
-      <div class="cake-card-shine"></div>
-      <span class="cake-card-badge">BESPOKE</span>
-      <div class="cake-card-body">
-        <span class="cake-card-num">06</span>
-        <h3>Custom Luxury Cakes</h3>
-        <p>One-of-a-kind masterpieces. A private consultation translates your vision into something the world has never tasted or seen.</p>
-        <div class="cake-card-footer">
-          <span class="cake-price">From ₹ 12,000</span>
-          <span class="cake-arrow">→</span>
-        </div>
+      <div class="contact-cta reveal">
+        <a href="tel:+919876543210" class="btn-call">📞 &nbsp;Call Now</a>
+        <a href="https://wa.me/919876543210?text=Hello!%20I'd%20like%20to%20order%20a%20cake." target="_blank"
+          class="btn-wa">💬 &nbsp;Order on WhatsApp</a>
       </div>
     </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">MONA HOMEMADECAKES</div>
+    <div class="footer-sub">Crafting Sweet Masterpieces Since 2012 · Namakkal</div>
+    <ul class="footer-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#cakes">Cakes</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#occasions">Occasions</a></li>
+      <li><a href="#timings">Hours</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="footer-rule"></div>
+    <p class="footer-copy">© 2024 Mona Homemadecakes · Santhapettai, Namakkal District · All rights reserved</p>
+  </footer>
+
+  <!-- FLOATING BUTTONS -->
+  <div class="floating-btns">
+    <a href="https://wa.me/919876543210?text=Hello!%20I'd%20like%20to%20order%20a%20cake%20from%20Mona%20Homemadecakes."
+      target="_blank" class="fab fab-wa" title="WhatsApp">💬</a>
+    <a href="tel:+919876543210" class="fab fab-call" title="Call">📞</a>
   </div>
-</section>
 
-<!-- GALLERY -->
-<section id="gallery">
-  <span class="eyebrow reveal">Cake Portfolio</span>
-  <h2 class="sec-title reveal">Featured Collection</h2>
-  <div class="sec-line reveal"></div>
-  <div class="gallery-wrap reveal">
-    <div class="swiper gallerySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=1400&q=85" alt="Luxury Wedding Cake" loading="lazy"/>
-          <div class="slide-caption"><span class="slide-num">01 / WEDDING</span>Ivory & Rose Gold Bridal Masterpiece</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=1400&q=85" alt="Floral Cake" loading="lazy"/>
-          <div class="slide-caption"><span class="slide-num">02 / FLORAL</span>Botanical Garden Floral Art Cake</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1400&q=85" alt="Chocolate Cake" loading="lazy"/>
-          <div class="slide-caption"><span class="slide-num">03 / CHOCOLATE</span>Dark Chocolate Indulgence Tower</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1611293388250-580b08c4a145?w=1400&q=85" alt="Peony Cake" loading="lazy"/>
-          <div class="slide-caption"><span class="slide-num">04 / ROMANCE</span>Peony Blossom Anniversary Tier</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=1400&q=85" alt="Drip Cake" loading="lazy"/>
-          <div class="slide-caption"><span class="slide-num">05 / DESIGNER</span>Champagne Gold Drip Cake</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=1400&q=85" alt="Wedding Tiers" loading="lazy"/>
-          <div class="slide-caption"><span class="slide-num">06 / WEDDING</span>Four-Tier White Elegance</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=1400&q=85" alt="Birthday Celebration" loading="lazy"/>
-          <div class="slide-caption"><span class="slide-num">07 / BIRTHDAY</span>Celebration Canopy Birthday Cake</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=1400&q=85" alt="Naked Cake" loading="lazy"/>
-          <div class="slide-caption"><span class="slide-num">08 / RUSTIC</span>Organic Naked Layer Cake</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1551404973-761c83cd8339?w=1400&q=85" alt="Cream Cake" loading="lazy"/>
-          <div class="slide-caption"><span class="slide-num">09 / CLASSIC</span>Vanilla & Cream Celebration</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1572003972803-571bb0a1ef89?w=1400&q=85" alt="Macaron Tower" loading="lazy"/>
-          <div class="slide-caption"><span class="slide-num">10 / PATISSERIE</span>Parisian Macaron Tower</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1519869325930-281384150729?w=1400&q=85" alt="Dessert Table" loading="lazy"/>
-          <div class="slide-caption"><span class="slide-num">11 / TABLE</span>Luxury Dessert Table Arrangement</div>
-        </div>
-        <div class="swiper-slide">
-          <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=1400&q=85" alt="Premium Cake" loading="lazy"/>
-          <div class="slide-caption"><span class="slide-num">12 / PREMIUM</span>Haute Pâtisserie Artistry</div>
-        </div>
-      </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY US -->
-<section id="why">
-  <span class="eyebrow reveal">Our Promise</span>
-  <h2 class="sec-title reveal">Why Choose Us</h2>
-  <div class="sec-line reveal"></div>
-  <div class="why-grid">
-    <div class="glass why-card reveal"><div class="why-icon-wrap">🌹</div><h3>Premium Ingredients</h3><p>Belgian couverture chocolate, French buttercream & organic eggs — quality begins at the very source.</p></div>
-    <div class="glass why-card reveal"><div class="why-icon-wrap">🎨</div><h3>Custom Designs</h3><p>Every cake is designed in close collaboration with you. Our artists translate your vision into edible art.</p></div>
-    <div class="glass why-card reveal"><div class="why-icon-wrap">🌅</div><h3>Freshly Baked Daily</h3><p>Zero pre-baked or frozen cakes. Every creation leaves our oven the morning it reaches your celebration.</p></div>
-    <div class="glass why-card reveal"><div class="why-icon-wrap">🚀</div><h3>Same-Day Delivery</h3><p>Lightning-fast delivery across Namakkal without compromising the beauty or integrity of your cake.</p></div>
-    <div class="glass why-card reveal"><div class="why-icon-wrap">👩‍🍳</div><h3>Expert Cake Artists</h3><p>Our team trained in renowned patisseries across India and Europe, bringing world-class artistry home.</p></div>
-    <div class="glass why-card reveal"><div class="why-icon-wrap">⭐</div><h3>100% Satisfaction</h3><p>Your celebration deserves nothing less than perfection. We stand behind every cake, guaranteed.</p></div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-inner">
-    <div class="about-img-wrap reveal">
-      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=85" alt="Mona Homemadecakes Baker" class="about-img" loading="lazy"/>
-      <div class="about-frame"></div>
-      <div class="about-badge"><strong>12+</strong><span>YEARS OF ARTISTRY</span></div>
-    </div>
-    <div class="about-content reveal">
-      <!-- mobile-only image -->
-      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Mona Homemadecakes" class="about-mobile-img" loading="lazy"/>
-      <span class="eyebrow">Our Story</span>
-      <h2 class="sec-title">Born from Passion,<br/>Perfected by Craft</h2>
-      <div class="sec-line"></div>
-      <p>Mona Homemadecakes was founded in 2012 with a single unwavering belief: a cake is not merely a dessert — it is the centrepiece of a memory. What began as a humble home-kitchen dream has grown into Namakkal's most celebrated luxury cake atelier.</p>
-      <p>Our master pâtissière, Mona, trained under world-class confectioners in Mumbai and Paris before returning home — creating a space where traditional Tamil warmth meets global artistry, where every sugared petal and hand-painted detail tells a story.</p>
-      <p>Today, we craft over 400 bespoke cakes each month, serving clients who demand — and deserve — nothing but extraordinary.</p>
-      <div class="stats-grid">
-        <div class="stat-item"><div class="stat-num" data-target="10000">0</div><div class="stat-label">Happy Customers</div></div>
-        <div class="stat-item"><div class="stat-num" data-target="5000">0</div><div class="stat-label">Custom Cakes Delivered</div></div>
-        <div class="stat-item"><div class="stat-num" data-target="12">0</div><div class="stat-label">Years of Experience</div></div>
-        <div class="stat-item"><div class="stat-num" data-target="98">0</div><div class="stat-label">% Customer Satisfaction</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <span class="eyebrow reveal">Client Love</span>
-  <h2 class="sec-title reveal">What Our Guests Say</h2>
-  <div class="sec-line reveal"></div>
-  <div class="testi-swiper reveal">
-    <div class="swiper testiSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="glass testi-slide"><div class="testi-stars">★★★★★</div><p class="testi-text">"Mona Homemadecakes created our four-tier wedding cake and it was beyond anything we'd imagined. Guests were photographing it before tasting — an absolutely breathtaking piece of art."</p><div class="testi-avatar">PR</div><div class="testi-author">Priya Rajan</div><div class="testi-role">Bride · Wedding Cake</div></div></div>
-        <div class="swiper-slide"><div class="glass testi-slide"><div class="testi-stars">★★★★★</div><p class="testi-text">"I ordered a custom Ferrari-themed cake for my son's 7th birthday and the detail left everyone speechless. It tasted even better than it looked — which is saying something extraordinary."</p><div class="testi-avatar">AK</div><div class="testi-author">Arjun Kumar</div><div class="testi-role">Customer · Theme Birthday Cake</div></div></div>
-        <div class="swiper-slide"><div class="glass testi-slide"><div class="testi-stars">★★★★★</div><p class="testi-text">"Their Belgian chocolate ganache cake for our 25th anniversary was phenomenal. The presentation, the flavour, and the warmth of the team — Mona Homemadecakes earned a customer for life."</p><div class="testi-avatar">SM</div><div class="testi-author">Sunita Menon</div><div class="testi-role">Customer · Anniversary Cake</div></div></div>
-        <div class="swiper-slide"><div class="glass testi-slide"><div class="testi-stars">★★★★★</div><p class="testi-text">"We've tried bakeries across Namakkal but nothing compares. The attention to detail, freshness, and passion they pour into every creation is unmatched. Highly recommended for any celebration."</p><div class="testi-avatar">VN</div><div class="testi-author">Vijay Nair</div><div class="testi-role">Customer · Corporate Event</div></div></div>
-        <div class="swiper-slide"><div class="glass testi-slide"><div class="testi-stars">★★★★★</div><p class="testi-text">"Same-day delivery and the cake arrived looking as if it had just come off display in a Paris boutique. Stunning craftsmanship and the red velvet was absolutely divine."</p><div class="testi-avatar">DP</div><div class="testi-author">Deepa Patel</div><div class="testi-role">Customer · Same-Day Delivery</div></div></div>
-        <div class="swiper-slide"><div class="glass testi-slide"><div class="testi-stars">★★★★★</div><p class="testi-text">"I've ordered four times now and each time they raise the bar. Their baby shower cake with handcrafted fondant booties had my sister in happy tears. Pure, edible magic."</p><div class="testi-avatar">MR</div><div class="testi-author">Meera Ramesh</div><div class="testi-role">Customer · Baby Shower Cake</div></div></div>
-        <div class="swiper-slide"><div class="glass testi-slide"><div class="testi-stars">★★★★★</div><p class="testi-text">"From consultation to delivery, every step was flawless. Mona personally ensured every detail matched our brief. This is what true luxury service feels like."</p><div class="testi-avatar">KV</div><div class="testi-author">Kiran Venkat</div><div class="testi-role">Customer · Bespoke Cake</div></div></div>
-        <div class="swiper-slide"><div class="glass testi-slide"><div class="testi-stars">★★★★★</div><p class="testi-text">"We ordered our engagement dessert table from Mona Homemadecakes and it was the talk of the evening. Three months later, guests still bring it up. Truly remarkable."</p><div class="testi-avatar">RS</div><div class="testi-author">Rahul & Shruti</div><div class="testi-role">Clients · Engagement Ceremony</div></div></div>
-        <div class="swiper-slide"><div class="glass testi-slide"><div class="testi-stars">★★★★★</div><p class="testi-text">"The fondant Taj Mahal they built for our cultural event was an engineering and artistic marvel. Every one of 300 guests stopped to photograph it. Genuinely gifted team."</p><div class="testi-avatar">TI</div><div class="testi-author">Tamil Institute</div><div class="testi-role">Organisation · Cultural Event</div></div></div>
-        <div class="swiper-slide"><div class="glass testi-slide"><div class="testi-stars">★★★★★</div><p class="testi-text">"Ordered a surprise cake with just 12 hours notice and they delivered a flawless, gorgeous creation exactly on time. Namakkal's best cake studio without a single doubt."</p><div class="testi-avatar">LA</div><div class="testi-author">Lavanya Anand</div><div class="testi-role">Customer · Last-Minute Order</div></div></div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</section>
-
-<!-- OCCASIONS -->
-<section id="occasions">
-  <span class="eyebrow reveal">Every Milestone</span>
-  <h2 class="sec-title reveal">We Celebrate With You</h2>
-  <div class="sec-line reveal"></div>
-  <div class="occasions-grid">
-    <div class="glass occ-card reveal"><span class="occ-icon">💒</span><h3>Weddings</h3><p>Where forever begins — with the most beautiful cake in the room.</p></div>
-    <div class="glass occ-card reveal"><span class="occ-icon">🎂</span><h3>Birthdays</h3><p>Every year deserves a cake as wonderful as the person celebrating.</p></div>
-    <div class="glass occ-card reveal"><span class="occ-icon">👶</span><h3>Baby Showers</h3><p>Welcome the newest addition with sweetness and edible artistry.</p></div>
-    <div class="glass occ-card reveal"><span class="occ-icon">💫</span><h3>Anniversaries</h3><p>Milestones that deserve to be marked with extraordinary elegance.</p></div>
-    <div class="glass occ-card reveal"><span class="occ-icon">🏢</span><h3>Corporate Events</h3><p>Impress clients with branded luxury dessert experiences.</p></div>
-    <div class="glass occ-card reveal"><span class="occ-icon">💍</span><h3>Engagements</h3><p>Begin your love story with a cake as unique as your bond.</p></div>
-  </div>
-</section>
-
-<!-- TIMINGS -->
-<section id="timings">
-  <span class="eyebrow reveal">Opening Hours</span>
-  <h2 class="sec-title reveal">When to Visit Us</h2>
-  <div class="sec-line reveal"></div>
-  <div class="timings-inner reveal" id="timingsInner">
-    <div id="statusBadge" class="status-badge"><span class="status-dot" id="statusDot"></span><span id="statusText">Checking…</span></div>
-    <table class="timing-table">
-      <tr><td>Monday</td><td>8:00 AM – 9:30 PM</td></tr>
-      <tr><td>Tuesday</td><td>8:00 AM – 9:30 PM</td></tr>
-      <tr><td>Wednesday</td><td>8:00 AM – 9:30 PM</td></tr>
-      <tr><td>Thursday</td><td>8:00 AM – 9:30 PM</td></tr>
-      <tr><td>Friday</td><td>8:00 AM – 9:30 PM</td></tr>
-      <tr><td>Saturday</td><td>8:00 AM – 9:30 PM</td></tr>
-      <tr><td>Sunday</td><td>8:00 AM – 9:30 PM</td></tr>
-    </table>
-    <p class="timings-note">✦ Orders accepted 7 days a week · Walk-ins always welcome</p>
-  </div>
-</section>
-
-<!-- LOCATION -->
-<section id="location">
-  <span class="eyebrow reveal">Visit Us</span>
-  <h2 class="sec-title reveal">Find Our Studio</h2>
-  <div class="sec-line reveal"></div>
-  <div class="location-inner">
-    <div class="glass location-card reveal">
-      <div class="loc-item"><span class="loc-icon">📍</span><div><h4>Studio Address</h4><p>Santhapettai,<br/>Namakkal District,<br/>Tamil Nadu 637001</p></div></div>
-      <div class="loc-item"><span class="loc-icon">📞</span><div><h4>Phone</h4><a href="tel:+919876543210">+91 98765 43210</a></div></div>
-      <div class="loc-item"><span class="loc-icon">✉️</span><div><h4>Email</h4><a href="mailto:hello@monahomemadecakes.com">hello@monahomemadecakes.com</a></div></div>
-      <div class="loc-item"><span class="loc-icon">🕐</span><div><h4>Hours</h4><p>Monday – Sunday · 8:00 AM – 9:30 PM</p></div></div>
-      <a href="https://wa.me/919876543210?text=Hello%20Mona%20Homemadecakes!" target="_blank" class="btn-wa" style="margin-top:.5rem;justify-content:center;">💬 &nbsp;WhatsApp Us</a>
-    </div>
-    <div class="map-wrap reveal">
-      <iframe src="https://maps.google.com/maps?q=Santhapettai,%20Namakkal,%20Tamil%20Nadu&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mona Homemadecakes Location"></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <span class="eyebrow reveal">Get In Touch</span>
-  <h2 class="sec-title reveal">Order Your Masterpiece</h2>
-  <div class="sec-line reveal"></div>
-  <div class="contact-inner">
-    <div class="contact-grid">
-      <div class="glass contact-card reveal"><span class="contact-icon">📞</span><h3>Call Us</h3><p>Speak directly with our cake consultants for personalised advice.</p><a href="tel:+919876543210">+91 98765 43210</a></div>
-      <div class="glass contact-card reveal"><span class="contact-icon">💬</span><h3>WhatsApp</h3><p>Send photos and inspiration. We respond within minutes.</p><a href="https://wa.me/919876543210" target="_blank">Chat on WhatsApp</a></div>
-      <div class="glass contact-card reveal"><span class="contact-icon">✉️</span><h3>Email</h3><p>For detailed briefs, large orders and corporate enquiries.</p><a href="mailto:hello@monahomemadecakes.com">hello@monahomemadecakes.com</a></div>
-    </div>
-    <div class="contact-cta reveal">
-      <a href="tel:+919876543210" class="btn-call">📞 &nbsp;Call Now</a>
-      <a href="https://wa.me/919876543210?text=Hello!%20I'd%20like%20to%20order%20a%20cake." target="_blank" class="btn-wa">💬 &nbsp;Order on WhatsApp</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">MONA HOMEMADECAKES</div>
-  <div class="footer-sub">Crafting Sweet Masterpieces Since 2012 · Namakkal</div>
-  <ul class="footer-links">
-    <li><a href="#hero">Home</a></li><li><a href="#cakes">Cakes</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#about">Our Story</a></li><li><a href="#testimonials">Reviews</a></li><li><a href="#occasions">Occasions</a></li><li><a href="#timings">Hours</a></li><li><a href="#location">Location</a></li><li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="footer-rule"></div>
-  <p class="footer-copy">© 2024 Mona Homemadecakes · Santhapettai, Namakkal District · All rights reserved</p>
-</footer>
-
-<!-- FLOATING BUTTONS -->
-<div class="floating-btns">
-  <a href="https://wa.me/919876543210?text=Hello!%20I'd%20like%20to%20order%20a%20cake%20from%20Mona%20Homemadecakes." target="_blank" class="fab fab-wa" title="WhatsApp">💬</a>
-  <a href="tel:+919876543210" class="fab fab-call" title="Call">📞</a>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-// LOADER
-window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    const l=document.getElementById('loader');
-    l.style.transition='opacity .8s';l.style.opacity='0';
-    setTimeout(()=>l.style.display='none',800);
-  },1900);
-});
-
-// CURSOR
-const cursor=document.getElementById('cursor');
-const cRing=document.getElementById('cursor-ring');
-const mGlow=document.getElementById('mouseGlow');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  cursor.style.left=mx+'px';cursor.style.top=my+'px';
-  mGlow.style.left=mx+'px';mGlow.style.top=my+'px';
-});
-(function ring(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cRing.style.left=rx+'px';cRing.style.top=ry+'px';requestAnimationFrame(ring);})();
-document.querySelectorAll('a,button,.glass,.cake-card,.fab').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cursor.style.width='20px';cursor.style.height='20px';cRing.style.width='52px';cRing.style.height='52px';cRing.style.borderColor='rgba(212,175,114,.8)';});
-  el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';cRing.style.width='34px';cRing.style.height='34px';cRing.style.borderColor='rgba(212,175,114,.45)';});
-});
-
-// SPARKLES
-document.addEventListener('click',e=>{
-  for(let i=0;i<7;i++){
-    const s=document.createElement('div');s.className='sparkle';
-    const a=(i/7)*360,r=a*Math.PI/180,d=18+Math.random()*22;
-    s.style.cssText=`left:${e.clientX}px;top:${e.clientY}px;width:${2+Math.random()*4}px;height:${2+Math.random()*4}px;background:${i%2?'#d4af72':'#c4786e'};transform:translate(${Math.cos(r)*d}px,${Math.sin(r)*d}px);`;
-    document.body.appendChild(s);setTimeout(()=>s.remove(),620);
-  }
-});
-
-// SCROLL
-window.addEventListener('scroll',()=>{
-  const st=window.scrollY,dh=document.documentElement.scrollHeight-window.innerHeight;
-  document.getElementById('scroll-progress').style.width=(st/dh*100)+'%';
-  document.getElementById('navbar').classList.toggle('scrolled',st>60);
-});
-
-// PARTICLES
-const pc=document.getElementById('particles-container');
-const emojis=['🌹','✨','🌸','⭐','💫','🌺','✦','🌟','🍓','🌼'];
-for(let i=0;i<28;i++){
-  const p=document.createElement('div');p.className='particle';
-  const sz=10+Math.random()*14;
-  p.style.cssText=`left:${Math.random()*100}%;bottom:-5%;font-size:${sz}px;width:${sz}px;height:${sz}px;background:transparent;animation-duration:${9+Math.random()*14}s;animation-delay:${Math.random()*14}s;`;
-  p.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-  pc.appendChild(p);
-}
-
-// REVEAL
-const obs=new IntersectionObserver((entries)=>{
-  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target);}});
-},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-// COUNTERS
-function counter(el,target,sfx){
-  let c=0,step=target/60;
-  const t=setInterval(()=>{c=Math.min(c+step,target);el.textContent=Math.floor(c).toLocaleString()+(c>=target?sfx:'');if(c>=target)clearInterval(t);},25);
-}
-const co=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){const el=e.target,tg=parseInt(el.dataset.target),sfx=el.closest('.stat-item').querySelector('.stat-label').textContent.includes('%')?'%':'+';counter(el,tg,sfx);co.unobserve(el);}});
-},{threshold:.5});
-document.querySelectorAll('.stat-num[data-target]').forEach(el=>co.observe(el));
-
-// STORE STATUS
-(function(){
-  const now=new Date(),m=now.getHours()*60+now.getMinutes();
-  const open=m>=480&&m<1290;
-  const ti=document.getElementById('timingsInner');
-  const sb=document.getElementById('statusBadge');
-  const st=document.getElementById('statusText');
-  if(open){ti.classList.add('s-open');sb.className='status-badge';sb.style.cssText='color:var(--champagne);border-color:var(--champagne);display:inline-flex;align-items:center;gap:.6rem;padding:.5rem 1.4rem;font-family:Cinzel,serif;font-size:.7rem;letter-spacing:.25em;margin-bottom:2rem;';st.textContent='WE ARE OPEN NOW';}
-  else{ti.classList.add('s-closed');sb.style.cssText='color:var(--rose-light);border-color:var(--rose-light);display:inline-flex;align-items:center;gap:.6rem;padding:.5rem 1.4rem;font-family:Cinzel,serif;font-size:.7rem;letter-spacing:.25em;margin-bottom:2rem;';st.textContent='CLOSED · OPENS 8:00 AM';}
-})();
-
-// SWIPERS
-new Swiper('.gallerySwiper',{loop:true,autoplay:{delay:3200,disableOnInteraction:false,pauseOnMouseEnter:true},effect:'fade',fadeEffect:{crossFade:true},speed:1000,navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'},pagination:{el:'.swiper-pagination',clickable:true},grabCursor:true});
-new Swiper('.testiSwiper',{loop:true,autoplay:{delay:3500,disableOnInteraction:false},speed:800,slidesPerView:1,centeredSlides:true,pagination:{el:'.swiper-pagination',clickable:true},grabCursor:true,breakpoints:{768:{slidesPerView:1.15},1024:{slidesPerView:1.3}}});
-
-// MOBILE MENU
-document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.add('open'));
-document.getElementById('mobileClose').addEventListener('click',closeMM);
-function closeMM(){document.getElementById('mobileMenu').classList.remove('open');}
-
-// CARD TILT (desktop only)
-if(window.innerWidth>768){
-  document.querySelectorAll('.glass').forEach(c=>{
-    c.addEventListener('mousemove',e=>{
-      const r=c.getBoundingClientRect(),dx=(e.clientX-r.left-r.width/2)/(r.width/2),dy=(e.clientY-r.top-r.height/2)/(r.height/2);
-      c.style.transform=`translateY(-5px) rotateX(${-dy*3.5}deg) rotateY(${dx*3.5}deg)`;
-    });
-    c.addEventListener('mouseleave',()=>{c.style.transform='';});
-  });
-}
-
-// SMOOTH SCROLL
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',function(e){
-    const t=document.querySelector(this.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
-  });
-});
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
