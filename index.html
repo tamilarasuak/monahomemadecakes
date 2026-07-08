@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mona Homemadecakes — Luxury Cake Boutique Namakkal</title>
+  <title>Mona Homemadecakes — Luxury Cake Boutique Namakkal District</title>
   <link rel="icon" href="cake.png">
   <meta name="description"
-    content="Mona Homemadecakes — Crafting Sweet Masterpieces for Every Celebration. Premium wedding cakes, designer birthday cakes & luxury custom cakes in Namakkal." />
+    content="Mona Homemadecakes — Crafting Sweet Masterpieces for Every Celebration. Premium wedding cakes, designer birthday cakes & luxury custom cakes in Namakkal District." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -26,10 +26,7 @@
 
   <!-- LOADER -->
   <div id="loader">
-    <div class="loader-ring"></div>
-    <div class="loader-logo">MONA HOMEMADECAKES</div>
-    <div class="loader-sub">Crafting Sweet Masterpieces</div>
-    <div class="loader-bar"></div>
+    <img src="pl.png" alt="Mona Homemadecakes Preloader" class="loader-logo-img" />
   </div>
 
   <!-- MOBILE MENU -->
@@ -45,7 +42,7 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <div class="nav-logo">MONA HOMEMADECAKES<span>Luxury Patisserie · Namakkal</span></div>
+    <div class="nav-logo">MONA HOMEMADECAKES<span>Luxury Patisserie · Namakkal District</span></div>
     <ul class="nav-links">
       <li><a href="#cakes">Cakes</a></li>
       <li><a href="#gallery">Gallery</a></li>
@@ -60,12 +57,15 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-bg"></div>
-    <div class="hero-img"></div>
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="mc.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <div class="hero-overlay"></div>
     <div id="particles-container"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">✦ Est. 2012 · Namakkal's Premier Cake Atelier ✦</p>
-      <h1 class="hero-title">Mona<span class="accent">Homemadecakes</span></h1>
+      <p class="hero-eyebrow">✦ Est. 2020 · Namakkal's Premier Cake Atelier ✦</p>
+      <h1 class="hero-title">Mona<span class="accent">Homemade Cakes</span></h1>
       <div class="hero-line"></div>
       <p class="hero-sub">Crafting Sweet Masterpieces for Every Celebration</p>
       <div class="hero-btns">
@@ -78,118 +78,131 @@
     </div>
   </section>
 
-  <!-- SIGNATURE CAKES — IMAGE CARDS -->
+  <!-- SIGNATURE CAKES — CAROUSEL -->
   <section id="cakes">
     <span class="eyebrow reveal">Our Specialities</span>
     <h2 class="sec-title reveal">Signature Collections</h2>
     <div class="sec-line reveal"></div>
-    <div class="cakes-grid">
+    <div class="cakes-swiper-container reveal">
+      <div class="swiper cakesSwiper">
+        <div class="swiper-wrapper">
 
-      <div class="cake-card reveal">
-        <img class="cake-card-img" src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800&q=85"
-          alt="Wedding Cake" />
-        <div class="cake-card-overlay"></div>
-        <div class="cake-card-shine"></div>
-        <span class="cake-card-badge">BESTSELLER</span>
-        <div class="cake-card-body">
-          <span class="cake-card-num">01</span>
-          <h3>Wedding Cakes</h3>
-          <p>Multi-tier opulent creations with edible florals, sugar lace & hand-painted gold accents — the centrepiece
-            of your love story.</p>
-          <div class="cake-card-footer">
-            <span class="cake-price">From ₹ 8,500</span>
-            <span class="cake-arrow">→</span>
+          <div class="swiper-slide cake-card">
+            <img class="cake-card-img" src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800&q=85"
+              alt="Wedding Cake" />
+            <div class="cake-card-overlay"></div>
+            <div class="cake-card-shine"></div>
+            <span class="cake-card-badge">BESTSELLER</span>
+            <div class="cake-card-body">
+              <span class="cake-card-num">01</span>
+              <h3>Wedding Cakes</h3>
+              <p>Multi-tier opulent creations with edible florals, sugar lace & hand-painted gold accents — the
+                centrepiece
+                of your love story.</p>
+              <div class="cake-card-footer">
+                <span class="cake-price">From ₹ 999</span>
+                <span class="cake-arrow">→</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="cake-card reveal">
-        <img class="cake-card-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=85"
-          alt="Birthday Cake" />
-        <div class="cake-card-overlay"></div>
-        <div class="cake-card-shine"></div>
-        <div class="cake-card-body">
-          <span class="cake-card-num">02</span>
-          <h3>Birthday Cakes</h3>
-          <p>Vibrant, joyful, and utterly delicious. From children's fantasies to elegant adult celebrations — every
-            slice is pure magic.</p>
-          <div class="cake-card-footer">
-            <span class="cake-price">From ₹ 1,200</span>
-            <span class="cake-arrow">→</span>
+          <div class="swiper-slide cake-card">
+            <img class="cake-card-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=85"
+              alt="Birthday Cake" />
+            <div class="cake-card-overlay"></div>
+            <div class="cake-card-shine"></div>
+            <div class="cake-card-body">
+              <span class="cake-card-num">02</span>
+              <h3>Birthday Cakes</h3>
+              <p>Vibrant, joyful, and utterly delicious. From children's fantasies to elegant adult celebrations — every
+                slice is pure magic.</p>
+              <div class="cake-card-footer">
+                <span class="cake-price">From ₹ 499</span>
+                <span class="cake-arrow">→</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="cake-card reveal">
-        <img class="cake-card-img" src="https://images.unsplash.com/photo-1611293388250-580b08c4a145?w=800&q=85"
-          alt="Anniversary Cake" />
-        <div class="cake-card-overlay"></div>
-        <div class="cake-card-shine"></div>
-        <span class="cake-card-badge">POPULAR</span>
-        <div class="cake-card-body">
-          <span class="cake-card-num">03</span>
-          <h3>Anniversary Cakes</h3>
-          <p>Romantic florals, gold leaf accents, and flavours as beautiful as your memories. Mark your milestones in
-            elegance.</p>
-          <div class="cake-card-footer">
-            <span class="cake-price">From ₹ 2,200</span>
-            <span class="cake-arrow">→</span>
+          <div class="swiper-slide cake-card">
+            <img class="cake-card-img" src="https://images.unsplash.com/photo-1611293388250-580b08c4a145?w=800&q=85"
+              alt="Anniversary Cake" />
+            <div class="cake-card-overlay"></div>
+            <div class="cake-card-shine"></div>
+            <span class="cake-card-badge">POPULAR</span>
+            <div class="cake-card-body">
+              <span class="cake-card-num">03</span>
+              <h3>Anniversary Cakes</h3>
+              <p>Romantic florals, gold leaf accents, and flavours as beautiful as your memories. Mark your milestones
+                in
+                elegance.</p>
+              <div class="cake-card-footer">
+                <span class="cake-price">From ₹ 799</span>
+                <span class="cake-arrow">→</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="cake-card reveal">
-        <img class="cake-card-img" src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800&q=85"
-          alt="Designer Cake" />
-        <div class="cake-card-overlay"></div>
-        <div class="cake-card-shine"></div>
-        <div class="cake-card-body">
-          <span class="cake-card-num">04</span>
-          <h3>Designer Cakes</h3>
-          <p>Where cake meets couture. Each piece is sculpted with extraordinary precision — wearable-art inspired and
-            entirely bespoke.</p>
-          <div class="cake-card-footer">
-            <span class="cake-price">From ₹ 3,500</span>
-            <span class="cake-arrow">→</span>
+          <div class="swiper-slide cake-card">
+            <img class="cake-card-img" src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=800&q=85"
+              alt="Designer Cake" />
+            <div class="cake-card-overlay"></div>
+            <div class="cake-card-shine"></div>
+            <div class="cake-card-body">
+              <span class="cake-card-num">04</span>
+              <h3>Designer Cakes</h3>
+              <p>Where cake meets couture. Each piece is sculpted with extraordinary precision — wearable-art inspired
+                and
+                entirely bespoke.</p>
+              <div class="cake-card-footer">
+                <span class="cake-price">From ₹ 899</span>
+                <span class="cake-arrow">→</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="cake-card reveal">
-        <img class="cake-card-img" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=85"
-          alt="Theme Cake" />
-        <div class="cake-card-overlay"></div>
-        <div class="cake-card-shine"></div>
-        <div class="cake-card-body">
-          <span class="cake-card-num">05</span>
-          <h3>Theme Cakes</h3>
-          <p>Immersive storytelling in sugar and sponge. Any theme, any world — we bring imagination to life with
-            stunning edible artistry.</p>
-          <div class="cake-card-footer">
-            <span class="cake-price">From ₹ 2,800</span>
-            <span class="cake-arrow">→</span>
+          <div class="swiper-slide cake-card">
+            <img class="cake-card-img" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800&q=85"
+              alt="Theme Cake" />
+            <div class="cake-card-overlay"></div>
+            <div class="cake-card-shine"></div>
+            <div class="cake-card-body">
+              <span class="cake-card-num">05</span>
+              <h3>Theme Cakes</h3>
+              <p>Immersive storytelling in sugar and sponge. Any theme, any world — we bring imagination to life with
+                stunning edible artistry.</p>
+              <div class="cake-card-footer">
+                <span class="cake-price">From ₹ 850</span>
+                <span class="cake-arrow">→</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="cake-card reveal">
-        <img class="cake-card-img" src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=85"
-          alt="Custom Luxury Cake" />
-        <div class="cake-card-overlay"></div>
-        <div class="cake-card-shine"></div>
-        <span class="cake-card-badge">BESPOKE</span>
-        <div class="cake-card-body">
-          <span class="cake-card-num">06</span>
-          <h3>Custom Luxury Cakes</h3>
-          <p>One-of-a-kind masterpieces. A private consultation translates your vision into something the world has
-            never tasted or seen.</p>
-          <div class="cake-card-footer">
-            <span class="cake-price">From ₹ 12,000</span>
-            <span class="cake-arrow">→</span>
+          <div class="swiper-slide cake-card">
+            <img class="cake-card-img" src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=85"
+              alt="Custom Luxury Cake" />
+            <div class="cake-card-overlay"></div>
+            <div class="cake-card-shine"></div>
+            <span class="cake-card-badge">BESPOKE</span>
+            <div class="cake-card-body">
+              <span class="cake-card-num">06</span>
+              <h3>Custom Luxury Cakes</h3>
+              <p>One-of-a-kind masterpieces. A private consultation translates your vision into something the world has
+                never tasted or seen.</p>
+              <div class="cake-card-footer">
+                <span class="cake-price">From ₹ 999</span>
+                <span class="cake-arrow">→</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
+        </div>
+        <!-- Navigation Buttons -->
+        <div class="swiper-button-prev cakes-prev"></div>
+        <div class="swiper-button-next cakes-next"></div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination cakes-pagination"></div>
+      </div>
     </div>
   </section>
 
@@ -202,67 +215,47 @@
       <div class="swiper gallerySwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=1400&q=85"
-              alt="Luxury Wedding Cake" loading="lazy" />
+            <img src="img/im1.png" alt="Ivory & Rose Gold Bridal Masterpiece" loading="lazy" />
             <div class="slide-caption"><span class="slide-num">01 / WEDDING</span>Ivory & Rose Gold Bridal Masterpiece
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=1400&q=85" alt="Floral Cake"
-              loading="lazy" />
+            <img src="img/im2.png" alt="Botanical Garden Floral Art" loading="lazy" />
             <div class="slide-caption"><span class="slide-num">02 / FLORAL</span>Botanical Garden Floral Art Cake</div>
           </div>
           <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1400&q=85" alt="Chocolate Cake"
-              loading="lazy" />
+            <img src="img/im3.png" alt="Dark Chocolate Indulgence Tower" loading="lazy" />
             <div class="slide-caption"><span class="slide-num">03 / CHOCOLATE</span>Dark Chocolate Indulgence Tower
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1611293388250-580b08c4a145?w=1400&q=85" alt="Peony Cake"
-              loading="lazy" />
+            <img src="img/im4.png" alt="Peony Blossom Anniversary Tier" loading="lazy" />
             <div class="slide-caption"><span class="slide-num">04 / ROMANCE</span>Peony Blossom Anniversary Tier</div>
           </div>
           <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=1400&q=85" alt="Drip Cake"
-              loading="lazy" />
+            <img src="img/im5.png" alt="Champagne Gold Drip Cake" loading="lazy" />
             <div class="slide-caption"><span class="slide-num">05 / DESIGNER</span>Champagne Gold Drip Cake</div>
           </div>
           <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=1400&q=85" alt="Wedding Tiers"
-              loading="lazy" />
+            <img src="img/im6.png" alt="Four-Tier White Elegance" loading="lazy" />
             <div class="slide-caption"><span class="slide-num">06 / WEDDING</span>Four-Tier White Elegance</div>
           </div>
           <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=1400&q=85"
-              alt="Birthday Celebration" loading="lazy" />
+            <img src="img/im7.png" alt="Celebration Canopy Birthday Cake" loading="lazy" />
             <div class="slide-caption"><span class="slide-num">07 / BIRTHDAY</span>Celebration Canopy Birthday Cake
             </div>
           </div>
           <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=1400&q=85" alt="Naked Cake"
-              loading="lazy" />
+            <img src="img/im8.png" alt="Organic Naked Layer Cake" loading="lazy" />
             <div class="slide-caption"><span class="slide-num">08 / RUSTIC</span>Organic Naked Layer Cake</div>
           </div>
           <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1551404973-761c83cd8339?w=1400&q=85" alt="Cream Cake"
-              loading="lazy" />
+            <img src="img/im9.png" alt="Vanilla & Cream Celebration" loading="lazy" />
             <div class="slide-caption"><span class="slide-num">09 / CLASSIC</span>Vanilla & Cream Celebration</div>
           </div>
           <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1572003972803-571bb0a1ef89?w=1400&q=85" alt="Macaron Tower"
-              loading="lazy" />
+            <img src="img/im10.png" alt="Parisian Macaron Tower" loading="lazy" />
             <div class="slide-caption"><span class="slide-num">10 / PATISSERIE</span>Parisian Macaron Tower</div>
-          </div>
-          <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1519869325930-281384150729?w=1400&q=85" alt="Dessert Table"
-              loading="lazy" />
-            <div class="slide-caption"><span class="slide-num">11 / TABLE</span>Luxury Dessert Table Arrangement</div>
-          </div>
-          <div class="swiper-slide">
-            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=1400&q=85" alt="Premium Cake"
-              loading="lazy" />
-            <div class="slide-caption"><span class="slide-num">12 / PREMIUM</span>Haute Pâtisserie Artistry</div>
           </div>
         </div>
         <div class="swiper-button-prev"></div>
@@ -272,42 +265,50 @@
     </div>
   </section>
 
-  <!-- WHY US -->
+  <!-- WHY US — CAROUSEL -->
   <section id="why">
     <span class="eyebrow reveal">Our Promise</span>
     <h2 class="sec-title reveal">Why Choose Us</h2>
     <div class="sec-line reveal"></div>
-    <div class="why-grid">
-      <div class="glass why-card reveal">
-        <div class="why-icon-wrap">🌹</div>
-        <h3>Premium Ingredients</h3>
-        <p>Belgian couverture chocolate, French buttercream & organic eggs — quality begins at the very source.</p>
-      </div>
-      <div class="glass why-card reveal">
-        <div class="why-icon-wrap">🎨</div>
-        <h3>Custom Designs</h3>
-        <p>Every cake is designed in close collaboration with you. Our artists translate your vision into edible art.
-        </p>
-      </div>
-      <div class="glass why-card reveal">
-        <div class="why-icon-wrap">🌅</div>
-        <h3>Freshly Baked Daily</h3>
-        <p>Zero pre-baked or frozen cakes. Every creation leaves our oven the morning it reaches your celebration.</p>
-      </div>
-      <div class="glass why-card reveal">
-        <div class="why-icon-wrap">🚀</div>
-        <h3>Same-Day Delivery</h3>
-        <p>Lightning-fast delivery across Namakkal without compromising the beauty or integrity of your cake.</p>
-      </div>
-      <div class="glass why-card reveal">
-        <div class="why-icon-wrap">👩‍🍳</div>
-        <h3>Expert Cake Artists</h3>
-        <p>Our team trained in renowned patisseries across India and Europe, bringing world-class artistry home.</p>
-      </div>
-      <div class="glass why-card reveal">
-        <div class="why-icon-wrap">⭐</div>
-        <h3>100% Satisfaction</h3>
-        <p>Your celebration deserves nothing less than perfection. We stand behind every cake, guaranteed.</p>
+    <div class="why-swiper-container reveal">
+      <div class="swiper whySwiper">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1 -->
+          <div class="swiper-slide glass why-card">
+            <div class="why-card-img-wrap">
+              <img src="c/c1.png" alt="Why Choose Us 1" class="why-card-img" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide glass why-card">
+            <div class="why-card-img-wrap">
+              <img src="c/c2.png" alt="Why Choose Us 2" class="why-card-img" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide glass why-card">
+            <div class="why-card-img-wrap">
+              <img src="c/c3.png" alt="Why Choose Us 3" class="why-card-img" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide glass why-card">
+            <div class="why-card-img-wrap">
+              <img src="c/c4.png" alt="Why Choose Us 4" class="why-card-img" loading="lazy" />
+            </div>
+          </div>
+
+        </div>
+        <!-- Navigation Buttons -->
+        <div class="swiper-button-prev why-prev"></div>
+        <div class="swiper-button-next why-next"></div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination why-pagination"></div>
       </div>
     </div>
   </section>
@@ -316,37 +317,35 @@
   <section id="about">
     <div class="about-inner">
       <div class="about-img-wrap reveal">
-        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=85" alt="Mona Homemadecakes Baker"
-          class="about-img" loading="lazy" />
+        <img src="ai.png" alt="Mona Homemadecakes Baker" class="about-img" loading="lazy" />
         <div class="about-frame"></div>
-        <div class="about-badge"><strong>12+</strong><span>YEARS OF ARTISTRY</span></div>
+        <div class="about-badge"><strong>6+</strong><span>YEARS OF ARTISTRY</span></div>
       </div>
       <div class="about-content reveal">
         <!-- mobile-only image -->
-        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Mona Homemadecakes"
-          class="about-mobile-img" loading="lazy" />
+        <img src="ai.png" alt="Mona Homemadecakes" class="about-mobile-img" loading="lazy" />
         <span class="eyebrow">Our Story</span>
         <h2 class="sec-title">Born from Passion,<br />Perfected by Craft</h2>
         <div class="sec-line"></div>
-        <p>Mona Homemadecakes was founded in 2012 with a single unwavering belief: a cake is not merely a dessert — it
+        <p>Mona Homemadecakes was founded in 2020 with a single unwavering belief: a cake is not merely a dessert — it
           is the centrepiece of a memory. What began as a humble home-kitchen dream has grown into Namakkal's most
           celebrated luxury cake atelier.</p>
         <p>Our master pâtissière, Mona, trained under world-class confectioners in Mumbai and Paris before returning
           home — creating a space where traditional Tamil warmth meets global artistry, where every sugared petal and
           hand-painted detail tells a story.</p>
-        <p>Today, we craft over 400 bespoke cakes each month, serving clients who demand — and deserve — nothing but
+        <p>Today, we craft over 400 bespoke cakes each month, serving customers who demand — and deserve — nothing but
           extraordinary.</p>
         <div class="stats-grid">
           <div class="stat-item">
-            <div class="stat-num" data-target="10000">0</div>
+            <div class="stat-num" data-target="1000">0</div>
             <div class="stat-label">Happy Customers</div>
           </div>
           <div class="stat-item">
-            <div class="stat-num" data-target="5000">0</div>
+            <div class="stat-num" data-target="1000">0</div>
             <div class="stat-label">Custom Cakes Delivered</div>
           </div>
           <div class="stat-item">
-            <div class="stat-num" data-target="12">0</div>
+            <div class="stat-num" data-target="6">0</div>
             <div class="stat-label">Years of Experience</div>
           </div>
           <div class="stat-item">
@@ -358,120 +357,194 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
+  <!-- TESTIMONIALS (CUSTOMER REVIEWS WIDGET) -->
   <section id="testimonials">
-    <span class="eyebrow reveal">Client Love</span>
-    <h2 class="sec-title reveal">What Our Guests Say</h2>
+    <span class="eyebrow reveal">Customer Love</span>
+    <h2 class="sec-title reveal">Reviews From Our Trusted Customers</h2>
     <div class="sec-line reveal"></div>
-    <div class="testi-swiper reveal">
-      <div class="swiper testiSwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="glass testi-slide">
-              <div class="testi-stars">★★★★★</div>
-              <p class="testi-text">"Mona Homemadecakes created our four-tier wedding cake and it was beyond anything
-                we'd imagined. Guests were photographing it before tasting — an absolutely breathtaking piece of art."
-              </p>
-              <div class="testi-avatar">PR</div>
-              <div class="testi-author">Priya Rajan</div>
-              <div class="testi-role">Bride · Wedding Cake</div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="glass testi-slide">
-              <div class="testi-stars">★★★★★</div>
-              <p class="testi-text">"I ordered a custom Ferrari-themed cake for my son's 7th birthday and the detail
-                left everyone speechless. It tasted even better than it looked — which is saying something
-                extraordinary."</p>
-              <div class="testi-avatar">AK</div>
-              <div class="testi-author">Arjun Kumar</div>
-              <div class="testi-role">Customer · Theme Birthday Cake</div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="glass testi-slide">
-              <div class="testi-stars">★★★★★</div>
-              <p class="testi-text">"Their Belgian chocolate ganache cake for our 25th anniversary was phenomenal. The
-                presentation, the flavour, and the warmth of the team — Mona Homemadecakes earned a customer for life."
-              </p>
-              <div class="testi-avatar">SM</div>
-              <div class="testi-author">Sunita Menon</div>
-              <div class="testi-role">Customer · Anniversary Cake</div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="glass testi-slide">
-              <div class="testi-stars">★★★★★</div>
-              <p class="testi-text">"We've tried bakeries across Namakkal but nothing compares. The attention to detail,
-                freshness, and passion they pour into every creation is unmatched. Highly recommended for any
-                celebration."</p>
-              <div class="testi-avatar">VN</div>
-              <div class="testi-author">Vijay Nair</div>
-              <div class="testi-role">Customer · Corporate Event</div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="glass testi-slide">
-              <div class="testi-stars">★★★★★</div>
-              <p class="testi-text">"Same-day delivery and the cake arrived looking as if it had just come off display
-                in a Paris boutique. Stunning craftsmanship and the red velvet was absolutely divine."</p>
-              <div class="testi-avatar">DP</div>
-              <div class="testi-author">Deepa Patel</div>
-              <div class="testi-role">Customer · Same-Day Delivery</div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="glass testi-slide">
-              <div class="testi-stars">★★★★★</div>
-              <p class="testi-text">"I've ordered four times now and each time they raise the bar. Their baby shower
-                cake with handcrafted fondant booties had my sister in happy tears. Pure, edible magic."</p>
-              <div class="testi-avatar">MR</div>
-              <div class="testi-author">Meera Ramesh</div>
-              <div class="testi-role">Customer · Baby Shower Cake</div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="glass testi-slide">
-              <div class="testi-stars">★★★★★</div>
-              <p class="testi-text">"From consultation to delivery, every step was flawless. Mona personally ensured
-                every detail matched our brief. This is what true luxury service feels like."</p>
-              <div class="testi-avatar">KV</div>
-              <div class="testi-author">Kiran Venkat</div>
-              <div class="testi-role">Customer · Bespoke Cake</div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="glass testi-slide">
-              <div class="testi-stars">★★★★★</div>
-              <p class="testi-text">"We ordered our engagement dessert table from Mona Homemadecakes and it was the talk
-                of the evening. Three months later, guests still bring it up. Truly remarkable."</p>
-              <div class="testi-avatar">RS</div>
-              <div class="testi-author">Rahul & Shruti</div>
-              <div class="testi-role">Clients · Engagement Ceremony</div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="glass testi-slide">
-              <div class="testi-stars">★★★★★</div>
-              <p class="testi-text">"The fondant Taj Mahal they built for our cultural event was an engineering and
-                artistic marvel. Every one of 300 guests stopped to photograph it. Genuinely gifted team."</p>
-              <div class="testi-avatar">TI</div>
-              <div class="testi-author">Tamil Institute</div>
-              <div class="testi-role">Organisation · Cultural Event</div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="glass testi-slide">
-              <div class="testi-stars">★★★★★</div>
-              <p class="testi-text">"Ordered a surprise cake with just 12 hours notice and they delivered a flawless,
-                gorgeous creation exactly on time. Namakkal's best cake studio without a single doubt."</p>
-              <div class="testi-avatar">LA</div>
-              <div class="testi-author">Lavanya Anand</div>
-              <div class="testi-role">Customer · Last-Minute Order</div>
-            </div>
-          </div>
+
+    <div class="testi-widget-container reveal">
+      <!-- Left Column: Summary Badge -->
+      <div class="testi-google-badge glass">
+        <h3>EXCELLENT</h3>
+        <div class="badge-stars">
+          ★★★★★
         </div>
-        <div class="swiper-pagination"></div>
+        <p class="badge-reviews-count">Based on <strong>450+ Customer Reviews</strong></p>
+        <div class="badge-google-logo">
+          <img src="pl.png" alt="Mona Homemadecakes Logo"
+            style="height: 38px; width: auto; object-fit: contain; filter: brightness(1.15) drop-shadow(0 2px 4px rgba(0,0,0,0.15));" />
+        </div>
+      </div>
+
+      <!-- Right Column: Swiper Carousel -->
+      <div class="testi-google-carousel">
+        <div class="swiper testiSwiper">
+          <div class="swiper-wrapper">
+
+            <!-- Review 1 -->
+            <div class="swiper-slide">
+              <div class="glass testi-google-card">
+                <div class="card-header">
+                  <div class="header-left">
+                    <div class="user-avatar color-avatar-1">PR</div>
+                    <div class="user-info">
+                      <h4 class="user-name">Priya Rajan</h4>
+                      <span class="review-date">9 November 2025</span>
+                    </div>
+                  </div>
+                  <div class="google-badge-top">
+                    <span
+                      style="font-family: 'Cinzel', serif; font-size: 2.2rem; color: rgba(212, 175, 114, 0.35); line-height: 0.8; font-weight: bold; transform: translateY(6px); display: inline-block;">“</span>
+                  </div>
+                </div>
+                <div class="card-stars-row">
+                  <span class="stars-gold">★★★★★</span>
+                  <!-- Verified badge -->
+                  <svg viewBox="0 0 24 24" width="14" height="14" class="verified-icon" style="color:#007bf5;"
+                    title="Verified Customer">
+                    <path fill="currentColor"
+                      d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.58,8.08L11,13.67L7.92,10.59L6.5,12L11,16.5Z" />
+                  </svg>
+                </div>
+                <p class="review-text">"Mona Homemadecakes created our four-tier wedding cake and it was beyond anything
+                  we'd imagined. Guests were photographing it before tasting — an absolutely breathtaking piece of art."
+                </p>
+                <a href="#contact" class="read-more-link">Read more</a>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="swiper-slide">
+              <div class="glass testi-google-card">
+                <div class="card-header">
+                  <div class="header-left">
+                    <div class="user-avatar color-avatar-2">AK</div>
+                    <div class="user-info">
+                      <h4 class="user-name">Arjun Kumar</h4>
+                      <span class="review-date">17 October 2025</span>
+                    </div>
+                  </div>
+                  <div class="google-badge-top">
+                    <span
+                      style="font-family: 'Cinzel', serif; font-size: 2.2rem; color: rgba(212, 175, 114, 0.35); line-height: 0.8; font-weight: bold; transform: translateY(6px); display: inline-block;">“</span>
+                  </div>
+                </div>
+                <div class="card-stars-row">
+                  <span class="stars-gold">★★★★★</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" class="verified-icon" style="color:#007bf5;"
+                    title="Verified Customer">
+                    <path fill="currentColor"
+                      d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.58,8.08L11,13.67L7.92,10.59L6.5,12L11,16.5Z" />
+                  </svg>
+                </div>
+                <p class="review-text">"I ordered a custom Ferrari-themed cake for my son's 7th birthday and the detail
+                  left everyone speechless. It tasted even better than it looked — which is saying something
+                  extraordinary."</p>
+                <a href="#contact" class="read-more-link">Read more</a>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="swiper-slide">
+              <div class="glass testi-google-card">
+                <div class="card-header">
+                  <div class="header-left">
+                    <div class="user-avatar color-avatar-3">SM</div>
+                    <div class="user-info">
+                      <h4 class="user-name">Sunita Menon</h4>
+                      <span class="review-date">14 October 2025</span>
+                    </div>
+                  </div>
+                  <div class="google-badge-top">
+                    <span
+                      style="font-family: 'Cinzel', serif; font-size: 2.2rem; color: rgba(212, 175, 114, 0.35); line-height: 0.8; font-weight: bold; transform: translateY(6px); display: inline-block;">“</span>
+                  </div>
+                </div>
+                <div class="card-stars-row">
+                  <span class="stars-gold">★★★★★</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" class="verified-icon" style="color:#007bf5;"
+                    title="Verified Customer">
+                    <path fill="currentColor"
+                      d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.58,8.08L11,13.67L7.92,10.59L6.5,12L11,16.5Z" />
+                  </svg>
+                </div>
+                <p class="review-text">"Their Belgian chocolate ganache cake for our 25th anniversary was phenomenal.
+                  The presentation, the flavour, and the warmth of the team — Mona Homemadecakes earned a customer for
+                  life."</p>
+                <a href="#contact" class="read-more-link">Read more</a>
+              </div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="swiper-slide">
+              <div class="glass testi-google-card">
+                <div class="card-header">
+                  <div class="header-left">
+                    <div class="user-avatar color-avatar-4">VN</div>
+                    <div class="user-info">
+                      <h4 class="user-name">Vijay Nair</h4>
+                      <span class="review-date">28 September 2025</span>
+                    </div>
+                  </div>
+                  <div class="google-badge-top">
+                    <span
+                      style="font-family: 'Cinzel', serif; font-size: 2.2rem; color: rgba(212, 175, 114, 0.35); line-height: 0.8; font-weight: bold; transform: translateY(6px); display: inline-block;">“</span>
+                  </div>
+                </div>
+                <div class="card-stars-row">
+                  <span class="stars-gold">★★★★★</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" class="verified-icon" style="color:#007bf5;"
+                    title="Verified Customer">
+                    <path fill="currentColor"
+                      d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.58,8.08L11,13.67L7.92,10.59L6.5,12L11,16.5Z" />
+                  </svg>
+                </div>
+                <p class="review-text">"We've tried bakeries across Namakkal but nothing compares. The attention to
+                  detail, freshness, and passion they pour into every creation is unmatched. Highly recommended for any
+                  celebration."</p>
+                <a href="#contact" class="read-more-link">Read more</a>
+              </div>
+            </div>
+
+            <!-- Review 5 -->
+            <div class="swiper-slide">
+              <div class="glass testi-google-card">
+                <div class="card-header">
+                  <div class="header-left">
+                    <div class="user-avatar color-avatar-5">DP</div>
+                    <div class="user-info">
+                      <h4 class="user-name">Deepa Patel</h4>
+                      <span class="review-date">5 September 2025</span>
+                    </div>
+                  </div>
+                  <div class="google-badge-top">
+                    <span
+                      style="font-family: 'Cinzel', serif; font-size: 2.2rem; color: rgba(212, 175, 114, 0.35); line-height: 0.8; font-weight: bold; transform: translateY(6px); display: inline-block;">“</span>
+                  </div>
+                </div>
+                <div class="card-stars-row">
+                  <span class="stars-gold">★★★★★</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" class="verified-icon" style="color:#007bf5;"
+                    title="Verified Customer">
+                    <path fill="currentColor"
+                      d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.58,8.08L11,13.67L7.92,10.59L6.5,12L11,16.5Z" />
+                  </svg>
+                </div>
+                <p class="review-text">"Same-day delivery and the cake arrived looking as if it had just come off
+                  display in a Paris boutique. Stunning craftsmanship and the red velvet was absolutely divine."</p>
+                <a href="#contact" class="read-more-link">Read more</a>
+              </div>
+            </div>
+
+          </div>
+          <!-- Swiper Navigation -->
+          <div class="swiper-button-prev testi-prev"></div>
+          <div class="swiper-button-next testi-next"></div>
+
+          <!-- Swiper Pagination -->
+          <div class="swiper-pagination testi-pagination"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -481,30 +554,88 @@
     <span class="eyebrow reveal">Every Milestone</span>
     <h2 class="sec-title reveal">We Celebrate With You</h2>
     <div class="sec-line reveal"></div>
-    <div class="occasions-grid">
-      <div class="glass occ-card reveal"><span class="occ-icon">💒</span>
-        <h3>Weddings</h3>
-        <p>Where forever begins — with the most beautiful cake in the room.</p>
-      </div>
-      <div class="glass occ-card reveal"><span class="occ-icon">🎂</span>
-        <h3>Birthdays</h3>
-        <p>Every year deserves a cake as wonderful as the person celebrating.</p>
-      </div>
-      <div class="glass occ-card reveal"><span class="occ-icon">👶</span>
-        <h3>Baby Showers</h3>
-        <p>Welcome the newest addition with sweetness and edible artistry.</p>
-      </div>
-      <div class="glass occ-card reveal"><span class="occ-icon">💫</span>
-        <h3>Anniversaries</h3>
-        <p>Milestones that deserve to be marked with extraordinary elegance.</p>
-      </div>
-      <div class="glass occ-card reveal"><span class="occ-icon">🏢</span>
-        <h3>Corporate Events</h3>
-        <p>Impress clients with branded luxury dessert experiences.</p>
-      </div>
-      <div class="glass occ-card reveal"><span class="occ-icon">💍</span>
-        <h3>Engagements</h3>
-        <p>Begin your love story with a cake as unique as your bond.</p>
+    <div class="occasions-swiper-container reveal">
+      <div class="swiper occasionsSwiper">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1 -->
+          <div class="swiper-slide glass occ-card"
+            style="--bg-img: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80');">
+            <div class="occ-bg"></div>
+            <div class="occ-content">
+              <span class="occ-icon">💒</span>
+              <h3>Weddings</h3>
+              <p class="occ-desc">Where forever begins — with the most beautiful cake in the room.</p>
+              <span class="occ-more">Discover Collection →</span>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide glass occ-card"
+            style="--bg-img: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80');">
+            <div class="occ-bg"></div>
+            <div class="occ-content">
+              <span class="occ-icon">🎂</span>
+              <h3>Birthdays</h3>
+              <p class="occ-desc">Every year deserves a cake as wonderful as the person celebrating.</p>
+              <span class="occ-more">Discover Collection →</span>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide glass occ-card"
+            style="--bg-img: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80');">
+            <div class="occ-bg"></div>
+            <div class="occ-content">
+              <span class="occ-icon">👶</span>
+              <h3>Baby Showers</h3>
+              <p class="occ-desc">Welcome the newest addition with sweetness and edible artistry.</p>
+              <span class="occ-more">Discover Collection →</span>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide glass occ-card"
+            style="--bg-img: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80');">
+            <div class="occ-bg"></div>
+            <div class="occ-content">
+              <span class="occ-icon">💫</span>
+              <h3>Anniversaries</h3>
+              <p class="occ-desc">Milestones that deserve to be marked with extraordinary elegance.</p>
+              <span class="occ-more">Discover Collection →</span>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="swiper-slide glass occ-card"
+            style="--bg-img: url('https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80');">
+            <div class="occ-bg"></div>
+            <div class="occ-content">
+              <span class="occ-icon">🏢</span>
+              <h3>Corporate Events</h3>
+              <p class="occ-desc">Impress customers with branded luxury dessert experiences.</p>
+              <span class="occ-more">Discover Collection →</span>
+            </div>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="swiper-slide glass occ-card"
+            style="--bg-img: url('https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80');">
+            <div class="occ-bg"></div>
+            <div class="occ-content">
+              <span class="occ-icon">💍</span>
+              <h3>Engagements</h3>
+              <p class="occ-desc">Begin your love story with a cake as unique as your bond.</p>
+              <span class="occ-more">Discover Collection →</span>
+            </div>
+          </div>
+
+        </div>
+        <!-- Navigation Buttons -->
+        <div class="swiper-button-prev occasions-prev"></div>
+        <div class="swiper-button-next occasions-next"></div>
+        <!-- Pagination -->
+        <div class="swiper-pagination occasions-pagination"></div>
       </div>
     </div>
   </section>
@@ -562,16 +693,19 @@
           <div>
             <h4>Studio Address</h4>
             <p>Santhapettai,<br />Namakkal District,<br />Tamil Nadu 637001</p>
+            <a href="https://maps.app.goo.gl/pDkgXx2coCcxpJaX7" target="_blank"
+              style="color:var(--champagne);text-decoration:underline;font-size:0.75rem;margin-top:0.3rem;display:inline-block;">🗺️
+              View on Google Maps</a>
           </div>
         </div>
         <div class="loc-item"><span class="loc-icon">📞</span>
           <div>
-            <h4>Phone</h4><a href="tel:+919876543210">+91 98765 43210</a>
+            <h4>Phone</h4><a href="tel:+918610432530">+91 86104 32530</a>
           </div>
         </div>
         <div class="loc-item"><span class="loc-icon">✉️</span>
           <div>
-            <h4>Email</h4><a href="mailto:hello@monahomemadecakes.com">hello@monahomemadecakes.com</a>
+            <h4>Email</h4><a href="mailto:monaasumi@gmail.com">monaasumi@gmail.com</a>
           </div>
         </div>
         <div class="loc-item"><span class="loc-icon">🕐</span>
@@ -580,12 +714,12 @@
             <p>Monday – Sunday · 8:00 AM – 9:30 PM</p>
           </div>
         </div>
-        <a href="https://wa.me/919876543210?text=Hello%20Mona%20Homemadecakes!" target="_blank" class="btn-wa"
+        <a href="https://wa.me/919976588226?text=Hello%20Mona%20Homemadecakes!" target="_blank" class="btn-wa"
           style="margin-top:.5rem;justify-content:center;">💬 &nbsp;WhatsApp Us</a>
       </div>
       <div class="map-wrap reveal">
         <iframe
-          src="https://maps.google.com/maps?q=Santhapettai,%20Namakkal,%20Tamil%20Nadu&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          src="https://maps.google.com/maps?q=Namakkal%20District,%20Tamil%20Nadu&t=&z=11&ie=UTF8&iwloc=&output=embed"
           allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           title="Mona Homemadecakes Location"></iframe>
       </div>
@@ -601,23 +735,29 @@
       <div class="contact-grid">
         <div class="glass contact-card reveal"><span class="contact-icon">📞</span>
           <h3>Call Us</h3>
-          <p>Speak directly with our cake consultants for personalised advice.</p><a href="tel:+919876543210">+91 98765
-            43210</a>
+          <p>Speak directly with our cake consultants for personalised advice.</p><a href="tel:+918610432530">+91 86104
+            32530</a>
         </div>
         <div class="glass contact-card reveal"><span class="contact-icon">💬</span>
           <h3>WhatsApp</h3>
-          <p>Send photos and inspiration. We respond within minutes.</p><a href="https://wa.me/919876543210"
+          <p>Send photos and inspiration. We respond within minutes.</p><a href="https://wa.me/919976588226"
             target="_blank">Chat on WhatsApp</a>
         </div>
         <div class="glass contact-card reveal"><span class="contact-icon">✉️</span>
           <h3>Email</h3>
           <p>For detailed briefs, large orders and corporate enquiries.</p><a
-            href="mailto:hello@monahomemadecakes.com">hello@monahomemadecakes.com</a>
+            href="mailto:monaasumi@gmail.com">monaasumi@gmail.com</a>
+        </div>
+        <div class="glass contact-card reveal"><span class="contact-icon">📸</span>
+          <h3>Instagram</h3>
+          <p>Follow us on Instagram for daily designs and updates.</p><a
+            href="https://www.instagram.com/monaa_homemade_cakes?igsh=anVnbnY0d3JhenBl"
+            target="_blank">@monaa_homemade_cakes</a>
         </div>
       </div>
       <div class="contact-cta reveal">
-        <a href="tel:+919876543210" class="btn-call">📞 &nbsp;Call Now</a>
-        <a href="https://wa.me/919876543210?text=Hello!%20I'd%20like%20to%20order%20a%20cake." target="_blank"
+        <a href="tel:+918610432530" class="btn-call">📞 &nbsp;Call Now</a>
+        <a href="https://wa.me/919976588226?text=Hello!%20I'd%20like%20to%20order%20a%20cake." target="_blank"
           class="btn-wa">💬 &nbsp;Order on WhatsApp</a>
       </div>
     </div>
@@ -626,7 +766,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">MONA HOMEMADECAKES</div>
-    <div class="footer-sub">Crafting Sweet Masterpieces Since 2012 · Namakkal</div>
+    <div class="footer-sub">Crafting Sweet Masterpieces Since 2020 · Namakkal District</div>
     <ul class="footer-links">
       <li><a href="#hero">Home</a></li>
       <li><a href="#cakes">Cakes</a></li>
@@ -638,15 +778,53 @@
       <li><a href="#location">Location</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="footer-contact-icons">
+      <!-- Call Link -->
+      <a href="tel:+918610432530" class="footer-icon-link icon-call" title="Call Us">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" />
+        </svg>
+      </a>
+      <!-- WhatsApp Link -->
+      <a href="https://wa.me/919976588226?text=Hello!%20I'd%20like%20to%20order%20a%20cake." target="_blank"
+        class="footer-icon-link icon-wa" title="WhatsApp Us">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.81 9.81 0 0 0 12.04 2zm0 1.66c2.2 0 4.27.86 5.82 2.41a8.17 8.17 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm-3.6 3.19c-.2 0-.47.07-.65.27-.18.2-.68.67-.68 1.64s.7 1.9.8 2.04c.1.13 1.38 2.1 3.34 2.95.47.2 1 .32 1.35.43.49.16.94.13 1.29.08.39-.06 1.21-.5 1.38-.97.17-.47.17-.87.12-.96-.05-.08-.18-.13-.39-.23s-1.21-.6-1.4-.66c-.18-.07-.32-.1-.45.1-.13.2-.52.66-.64.8-.12.13-.24.15-.45.05a5.67 5.67 0 0 1-1.67-1.03c-.56-.5-1-1.1-1.1-1.28-.1-.2-.01-.32.09-.42.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.45-1.09-.62-1.5-.17-.41-.33-.35-.45-.36-.12 0-.25-.01-.38-.01z" />
+        </svg>
+      </a>
+      <!-- Email Link -->
+      <a href="mailto:monaasumi@gmail.com" class="footer-icon-link icon-email" title="Email Us">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,8L12,13L4,8V6L12,11L20,6V8Z" />
+        </svg>
+      </a>
+      <!-- Instagram Link -->
+      <a href="https://www.instagram.com/monaa_homemade_cakes?igsh=anVnbnY0d3JhenBl" target="_blank"
+        class="footer-icon-link icon-insta" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4A3.6,3.6 0 0,0 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6A3.6,3.6 0 0,0 16.4,4H7.6M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5Z" />
+        </svg>
+      </a>
+    </div>
+    <!-- Visitor Counter -->
+    <div class="footer-counter" style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); padding: 0.5rem 1rem; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <span class="counter-icon" style="font-size: 0.9rem; filter: drop-shadow(0 0 4px var(--champagne));">👁️</span>
+      <span style="font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.15em; color: var(--text-muted); text-transform: uppercase;">Page Visits:</span>
+      <span id="page-visitor-count" style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.8rem; color: var(--champagne); letter-spacing: 0.05em;">0</span>
+    </div>
     <div class="footer-rule"></div>
-    <p class="footer-copy">© 2024 Mona Homemadecakes · Santhapettai, Namakkal District · All rights reserved</p>
+    <p class="footer-copy">© 2026 Mona Homemadecakes · Santhapettai, Namakkal District · All rights reserved</p>
   </footer>
 
   <!-- FLOATING BUTTONS -->
   <div class="floating-btns">
-    <a href="https://wa.me/919876543210?text=Hello!%20I'd%20like%20to%20order%20a%20cake%20from%20Mona%20Homemadecakes."
+    <a href="https://wa.me/919976588226?text=Hello!%20I'd%20like%20to%20order%20a%20cake%20from%20Mona%20Homemadecakes."
       target="_blank" class="fab fab-wa" title="WhatsApp">💬</a>
-    <a href="tel:+919876543210" class="fab fab-call" title="Call">📞</a>
+    <a href="tel:+918610432530" class="fab fab-call" title="Call">📞</a>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
