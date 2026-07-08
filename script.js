@@ -2,8 +2,13 @@
     window.addEventListener('load', () => {
       setTimeout(() => {
         const l = document.getElementById('loader');
-        l.style.transition = 'opacity .8s'; l.style.opacity = '0';
-        setTimeout(() => l.style.display = 'none', 800);
+        if (l) {
+          l.style.transition = 'opacity .8s'; l.style.opacity = '0';
+          setTimeout(() => {
+            l.style.display = 'none';
+            document.body.classList.remove('loading');
+          }, 800);
+        }
       }, 1900);
     });
 
@@ -86,9 +91,32 @@
     new Swiper('.occasionsSwiper', { loop: true, autoplay: { delay: 3600, disableOnInteraction: false, pauseOnMouseEnter: true }, speed: 800, navigation: { nextEl: '.occasions-next', prevEl: '.occasions-prev' }, pagination: { el: '.occasions-pagination', clickable: true }, grabCursor: true, breakpoints: { 320: { slidesPerView: 1, spaceBetween: 15 }, 768: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 30 } } });
 
     // MOBILE MENU
-    document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
-    document.getElementById('mobileClose').addEventListener('click', closeMM);
-    function closeMM() { document.getElementById('mobileMenu').classList.remove('open'); }
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburger = document.getElementById('hamburger');
+
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+      });
+    }
+
+    function closeMM() {
+      if (mobileMenu) {
+        mobileMenu.classList.remove('open');
+      }
+      if (hamburger) {
+        hamburger.classList.remove('open');
+      }
+    }
+
+    // Attach closeMM globally so inline HTML onclick handlers function correctly
+    window.closeMM = closeMM;
+
+    // Close menu when clicking on any mobile menu nav links
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', closeMM);
+    });
 
     // CARD TILT (desktop only)
     if (window.innerWidth > 768) {
@@ -113,21 +141,61 @@
     (function initVisitorCounter() {
       const el = document.getElementById('page-visitor-count');
       if (!el) return;
-      let count = localStorage.getItem('mona_visits_counter');
-      if (!count) {
-        count = 1;
-      } else {
-        count = parseInt(count) + 1;
+
+      const baseCount = 0;
+      const hasVisitedThisSession = sessionStorage.getItem('monaa_visit_logged');
+      const apiUrl = hasVisitedThisSession 
+        ? 'https://api.counterapi.dev/v1/monaa_homemade_cakes/visits'
+        : 'https://api.counterapi.dev/v1/monaa_homemade_cakes/visits/up';
+
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) throw new Error('API error');
+          return response.json();
+        })
+        .then(data => {
+          if (data && typeof data.count === 'number') {
+            if (!hasVisitedThisSession) {
+              sessionStorage.setItem('monaa_visit_logged', 'true');
+            }
+            const displayCount = baseCount + data.count;
+            // Cache the latest count locally
+            localStorage.setItem('monaa_visits_cached', displayCount);
+            animateCounter(displayCount);
+          } else {
+            fallbackLocalCounter();
+          }
+        })
+        .catch(err => {
+          console.warn('Failed to fetch from global counter API:', err);
+          fallbackLocalCounter();
+        });
+
+      function animateCounter(targetCount) {
+        let start = Math.max(0, targetCount - 5);
+        el.textContent = start.toLocaleString();
+        const interval = setInterval(() => {
+          if (start < targetCount) {
+            start++;
+            el.textContent = start.toLocaleString();
+          } else {
+            clearInterval(interval);
+          }
+        }, 100);
       }
-      localStorage.setItem('mona_visits_counter', count);
-      let start = Math.max(0, count - 5);
-      el.textContent = start.toLocaleString();
-      const interval = setInterval(() => {
-        if (start < count) {
-          start++;
-          el.textContent = start.toLocaleString();
-        } else {
-          clearInterval(interval);
+
+      function fallbackLocalCounter() {
+        // Try to get cached count first, otherwise fall back to old local counter or baseCount
+        let cached = localStorage.getItem('monaa_visits_cached') || localStorage.getItem('monaa_visits_counter');
+        let count = cached ? parseInt(cached) : baseCount;
+
+        if (!hasVisitedThisSession) {
+          count += 1;
+          sessionStorage.setItem('monaa_visit_logged', 'true');
         }
-      }, 100);
+
+        // Save the updated fallback count
+        localStorage.setItem('monaa_visits_cached', count);
+        animateCounter(count);
+      }
     })();
